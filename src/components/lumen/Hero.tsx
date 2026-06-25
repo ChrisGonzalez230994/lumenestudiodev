@@ -1,15 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import { Sparkles, ArrowRight, MessageCircle } from "lucide-react";
 import posterImg from "@/assets/hero-poster.jpg";
+import video1 from "@/assets/hero-1.mp4.asset.json";
+import video2 from "@/assets/hero-2.mp4.asset.json";
+import video3 from "@/assets/hero-3.mp4.asset.json";
 
-const HLS_SRC =
-  "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8";
-const MP4_SRC =
-  "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBigBuckBunny.mp4";
+const SOURCES = [video1.url, video2.url, video3.url];
+const LOOPS_PER_VIDEO = 3;
 
 export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const playCountRef = useRef(0);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -23,43 +26,36 @@ export function Hero() {
     if (reducedMotion) return;
     const video = videoRef.current;
     if (!video) return;
+    playCountRef.current = 0;
 
-    let hls: { destroy: () => void } | null = null;
-
-    if (video.canPlayType("application/vnd.apple.mpegurl")) {
-      video.src = HLS_SRC;
-    } else {
-      import("hls.js").then(({ default: Hls }) => {
-        if (Hls.isSupported()) {
-          const instance = new Hls();
-          instance.loadSource(HLS_SRC);
-          instance.attachMedia(video);
-          hls = instance;
-        } else {
-          video.src = MP4_SRC;
-        }
-      }).catch(() => {
-        video.src = MP4_SRC;
-      });
-    }
-
-    return () => {
-      if (hls) hls.destroy();
+    const onEnded = () => {
+      playCountRef.current += 1;
+      if (playCountRef.current < LOOPS_PER_VIDEO) {
+        video.currentTime = 0;
+        void video.play();
+      } else {
+        setIndex((i) => (i + 1) % SOURCES.length);
+      }
     };
-  }, [reducedMotion]);
+
+    video.addEventListener("ended", onEnded);
+    void video.play().catch(() => {});
+    return () => video.removeEventListener("ended", onEnded);
+  }, [index, reducedMotion]);
 
   return (
     <section id="top" className="relative h-screen min-h-[640px] w-full overflow-hidden bg-ink">
       {!reducedMotion && (
         <video
           ref={videoRef}
+          key={SOURCES[index]}
+          src={SOURCES[index]}
           poster={posterImg}
           autoPlay
           muted
-          loop
           playsInline
           aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover animate-fade-in"
         />
       )}
       {reducedMotion && (
@@ -79,7 +75,6 @@ export function Hero() {
             "linear-gradient(to bottom, rgba(43,43,43,0.15) 0%, rgba(43,43,43,0.25) 45%, rgba(43,43,43,0.65) 100%)",
         }}
       />
-      {/* Side vignette for legibility */}
       <div
         className="absolute inset-0"
         style={{
