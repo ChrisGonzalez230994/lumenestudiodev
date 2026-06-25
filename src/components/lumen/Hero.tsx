@@ -92,9 +92,9 @@ export function Hero() {
           </div>
 
           <h1 className="font-display text-4xl font-bold leading-[1.05] text-white sm:text-6xl lg:text-7xl">
-            Lumen —{" "}
-            <span className="text-mustard-soft">claridad digital</span>{" "}
-            para tu negocio
+            Lumen
+            <span className="block text-mustard-soft">claridad digital</span>
+            <span className="block">para tu negocio</span>
           </h1>
 
           <p className="mt-5 max-w-xl text-base text-white/85 sm:text-lg">
