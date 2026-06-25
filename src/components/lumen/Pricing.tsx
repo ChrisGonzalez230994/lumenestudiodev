@@ -50,7 +50,7 @@ export function Pricing() {
             Planes
           </span>
           <h2 className="mt-3 font-display text-4xl font-bold text-ink sm:text-5xl">
-            Precios claros, sin sorpresas
+            Planes claros, sin sorpresas
           </h2>
           <p className="mt-4 text-base text-muted-foreground sm:text-lg">
             Elegí el plan que mejor se adapta a tu momento. Siempre podés escalar.
@@ -74,9 +74,6 @@ export function Pricing() {
                 )}
                 <h3 className="font-display text-2xl font-bold text-ink">{t.name}</h3>
                 <p className="mt-2 text-sm text-ink/60">{t.desc}</p>
-                <div className="mt-6 font-display text-3xl font-bold text-ink">
-                  {t.price}
-                </div>
                 <ul className="mt-8 flex-1 space-y-3">
                   {t.features.map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-ink/80">
