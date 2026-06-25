@@ -4,7 +4,6 @@ import { Reveal } from "./Reveal";
 const tiers = [
   {
     name: "Starter",
-    price: "Desde USD 150",
     desc: "Ideal para arrancar tu presencia digital.",
     features: [
       "Landing page de hasta 4 secciones",
@@ -17,7 +16,6 @@ const tiers = [
   },
   {
     name: "Pro",
-    price: "Desde USD 280",
     desc: "Para negocios que quieren crecer.",
     features: [
       "Landing page de hasta 7 secciones",
@@ -31,7 +29,6 @@ const tiers = [
   },
   {
     name: "Premium",
-    price: "Desde USD 500",
     desc: "Solución completa para vender online.",
     features: [
       "Todo lo de Pro",
