@@ -25,7 +25,6 @@ export function HowWeWork() {
     <section
       id="proceso"
       className="relative overflow-hidden py-24 sm:py-32"
-      style={{ background: "var(--cream-warm)" }}
     >
       <video
         src={bgVideo.url}
@@ -34,14 +33,7 @@ export function HowWeWork() {
         loop
         playsInline
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover opacity-20"
-      />
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(to bottom, var(--cream-warm) 0%, rgba(251,240,210,0.7) 50%, var(--cream-warm) 100%)",
-        }}
+        className="absolute inset-0 h-full w-full object-cover opacity-50"
       />
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <Reveal className="max-w-2xl">
