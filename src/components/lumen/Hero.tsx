@@ -2,10 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { Sparkles, ArrowRight, MessageCircle } from "lucide-react";
 import posterImg from "@/assets/hero-poster.jpg";
 import video1 from "@/assets/hero-1.mp4.asset.json";
-import video2 from "@/assets/hero-2.mp4.asset.json";
 import video3 from "@/assets/hero-3.mp4.asset.json";
 
-const SOURCES = [video1.url, video2.url, video3.url];
+const SOURCES = [video1.url, video3.url];
 const LOOPS_PER_VIDEO = 3;
 
 export function Hero() {
