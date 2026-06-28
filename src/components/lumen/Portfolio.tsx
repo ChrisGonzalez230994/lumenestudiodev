@@ -4,9 +4,10 @@ import case2 from "@/assets/case-2.jpg";
 import case3 from "@/assets/case-3.jpg";
 
 const cases = [
-  { img: case1, name: "Estudio Solana", tag: "Landing Page" },
-  { img: case2, name: "Helena Bot", tag: "Automatización IA" },
-  { img: case3, name: "Casa Mate", tag: "E-commerce" },
+  { img: case1, name: "ICB Mar del Plata", tag: "Sitio institucional", alt: "Vista previa del sitio institucional ICB Mar del Plata" },
+  { img: case2, name: "Encuadernación Stele", tag: "Catálogo digital", alt: "Vista previa del catálogo digital de Encuadernación Stele" },
+  { img: case3, name: "Casa Mate", tag: "E-commerce", alt: "Vista previa de la tienda online Casa Mate" },
+  { img: case1, name: "Estudio Solana", tag: "Landing Page", alt: "Vista previa de la landing page Estudio Solana" },
 ];
 
 export function Portfolio() {
@@ -24,11 +25,15 @@ export function Portfolio() {
           <h2 className="mt-3 font-display text-4xl font-bold text-ink sm:text-5xl">
             Proyectos recientes
           </h2>
+          <p className="mt-4 text-base text-ink/70">
+            Una muestra de trabajos hechos para negocios e instituciones de Mar del Plata
+            y el país.
+          </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {cases.map((c, i) => (
-            <Reveal key={c.name} delay={i * 0.08}>
+            <Reveal key={c.name + i} delay={i * 0.06}>
               <a
                 href="#contacto"
                 className="group block overflow-hidden rounded-3xl bg-card shadow-soft transition-transform hover:-translate-y-1"
@@ -36,16 +41,16 @@ export function Portfolio() {
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={c.img}
-                    alt={c.name}
+                    alt={c.alt}
                     loading="lazy"
                     width={1024}
                     height={768}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <div className="flex items-center justify-between p-5">
-                  <h3 className="font-display text-lg font-bold text-ink">{c.name}</h3>
-                  <span className="rounded-full bg-mustard-soft px-3 py-1 text-xs font-semibold text-ink">
+                <div className="flex flex-col gap-1.5 p-5">
+                  <h3 className="font-display text-base font-bold text-ink">{c.name}</h3>
+                  <span className="w-fit rounded-full bg-mustard-soft px-3 py-1 text-xs font-semibold text-ink">
                     {c.tag}
                   </span>
                 </div>
