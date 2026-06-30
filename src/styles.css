@@ -38,7 +38,7 @@
   --color-mustard-soft: var(--mustard-soft);
   --color-ink: var(--ink);
 
-  --font-display: "Sora", system-ui, sans-serif;
+  --font-display: "Inter Tight", "Inter", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
 
   --shadow-soft: 0 10px 30px -12px color-mix(in oklab, var(--ink) 18%, transparent);
@@ -48,33 +48,41 @@
 :root {
   --radius: 1rem;
 
-  /* Brand */
-  --cream: oklch(0.975 0.025 90);          /* #FAF7F0 */
-  --cream-warm: oklch(0.955 0.055 90);     /* #FBF0D2 */
-  --mustard-soft: oklch(0.89 0.10 88);     /* #F2D98D */
-  --mustard: oklch(0.79 0.145 82);         /* #E0B84D */
-  --ink: oklch(0.27 0.005 90);             /* #2B2B2B */
+  /* Brand (kept for legacy components) */
+  --cream: oklch(0.975 0.025 90);
+  --cream-warm: oklch(0.955 0.055 90);
+  --mustard-soft: oklch(0.89 0.10 88);
+  --mustard: oklch(0.79 0.145 82);
+  --ink: oklch(0.16 0 0);                  /* near-black */
 
-  --background: var(--cream);
-  --foreground: var(--ink);
-  --card: oklch(1 0 0);
-  --card-foreground: var(--ink);
-  --popover: oklch(1 0 0);
-  --popover-foreground: var(--ink);
-  --primary: var(--mustard);
-  --primary-foreground: var(--ink);
-  --secondary: var(--cream-warm);
-  --secondary-foreground: var(--ink);
-  --muted: var(--cream-warm);
-  --muted-foreground: oklch(0.45 0.01 90);
-  --accent: var(--mustard-soft);
-  --accent-foreground: var(--ink);
+  /* Editorial dark palette */
+  --bg: oklch(0.07 0 0);                   /* #0A0A0A */
+  --bg-elev: oklch(0.11 0 0);              /* #161616 */
+  --fg: oklch(0.985 0 0);                  /* near-white */
+  --fg-muted: oklch(0.62 0 0);             /* mid gray */
+  --line: oklch(0.24 0 0);                 /* hairlines */
+
+  --background: var(--bg);
+  --foreground: var(--fg);
+  --card: var(--bg-elev);
+  --card-foreground: var(--fg);
+  --popover: var(--bg-elev);
+  --popover-foreground: var(--fg);
+  --primary: var(--fg);
+  --primary-foreground: var(--bg);
+  --secondary: var(--bg-elev);
+  --secondary-foreground: var(--fg);
+  --muted: var(--bg-elev);
+  --muted-foreground: var(--fg-muted);
+  --accent: var(--mustard);
+  --accent-foreground: var(--bg);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.9 0.02 88);
-  --input: oklch(0.92 0.018 88);
-  --ring: var(--mustard);
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--fg);
 }
+
 
 .dark {
   --background: var(--ink);
