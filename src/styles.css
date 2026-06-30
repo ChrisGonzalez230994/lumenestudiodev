@@ -104,18 +104,20 @@
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.04em;
+    font-weight: 700;
   }
 }
 
 @utility glass-light {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(10, 10, 10, 0.35);
   backdrop-filter: blur(14px) saturate(140%);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 @utility glass-solid {
-  background: rgba(250, 247, 240, 0.85);
+  background: rgba(10, 10, 10, 0.85);
   backdrop-filter: blur(14px) saturate(140%);
-  border-bottom: 1px solid rgba(43, 43, 43, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
+
