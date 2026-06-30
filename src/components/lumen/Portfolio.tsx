@@ -4,55 +4,65 @@ import case2 from "@/assets/case-2.jpg";
 import case3 from "@/assets/case-3.jpg";
 
 const cases = [
-  { img: case1, name: "ICB Mar del Plata", tag: "Sitio institucional", alt: "Vista previa del sitio institucional ICB Mar del Plata" },
-  { img: case2, name: "Encuadernación Stele", tag: "Catálogo digital", alt: "Vista previa del catálogo digital de Encuadernación Stele" },
-  { img: case3, name: "Casa Mate", tag: "E-commerce", alt: "Vista previa de la tienda online Casa Mate" },
-  { img: case1, name: "Estudio Solana", tag: "Landing Page", alt: "Vista previa de la landing page Estudio Solana" },
+  { img: case1, name: "ICB Mar del Plata", type: "Sitio institucional", year: "2025", alt: "Vista previa del sitio institucional ICB Mar del Plata" },
+  { img: case2, name: "Encuadernación Stele", type: "Catálogo digital", year: "2025", alt: "Vista previa del catálogo digital Stele" },
+  { img: case3, name: "Casa Mate", type: "E-commerce", year: "2024", alt: "Vista previa de la tienda online Casa Mate" },
+  { img: case1, name: "Estudio Solana", type: "Landing Page", year: "2024", alt: "Vista previa de la landing Estudio Solana" },
 ];
 
 export function Portfolio() {
   return (
-    <section
-      id="portfolio"
-      className="relative py-24 sm:py-32"
-      style={{ background: "var(--cream-warm)" }}
-    >
-      <div className="mx-auto max-w-7xl px-6">
-        <Reveal className="max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-mustard">
-            Portfolio
-          </span>
-          <h2 className="mt-3 font-display text-4xl font-bold text-ink sm:text-5xl">
-            Proyectos recientes
+    <section id="trabajo" className="relative border-t border-border bg-background py-24 sm:py-32">
+      <div className="mx-auto max-w-[1600px] px-6 sm:px-10">
+        <Reveal className="max-w-3xl">
+          <p className="text-sm text-muted-foreground">[ Selección de proyectos ]</p>
+          <h2 className="mt-4 font-display text-5xl font-bold tracking-tight sm:text-7xl">
+            Nuestro trabajo, <span className="text-muted-foreground">de cerca</span>
           </h2>
-          <p className="mt-4 text-base text-ink/70">
-            Una muestra de trabajos hechos para negocios e instituciones de Mar del Plata
-            y el país.
-          </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-20 grid gap-x-10 gap-y-24 md:grid-cols-2">
           {cases.map((c, i) => (
-            <Reveal key={c.name + i} delay={i * 0.06}>
-              <a
-                href="#contacto"
-                className="group block overflow-hidden rounded-3xl bg-card shadow-soft transition-transform hover:-translate-y-1"
-              >
-                <div className="aspect-[4/3] overflow-hidden">
+            <Reveal
+              key={c.name + i}
+              delay={(i % 2) * 0.08}
+              className={i % 2 === 1 ? "md:mt-32" : ""}
+            >
+              <a href="#contacto" className="group block">
+                <div className="overflow-hidden bg-card">
                   <img
                     src={c.img}
                     alt={c.alt}
                     loading="lazy"
-                    width={1024}
-                    height={768}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    width={1280}
+                    height={1700}
+                    className="aspect-[3/4] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                 </div>
-                <div className="flex flex-col gap-1.5 p-5">
-                  <h3 className="font-display text-base font-bold text-ink">{c.name}</h3>
-                  <span className="w-fit rounded-full bg-mustard-soft px-3 py-1 text-xs font-semibold text-ink">
-                    {c.tag}
+
+                <div className="mt-6 grid grid-cols-12 gap-4">
+                  <span className="col-span-2 text-xs text-muted-foreground">
+                    [ 0{i + 1} ]
                   </span>
+                  <div className="col-span-7">
+                    <h3 className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+                      {c.name}
+                    </h3>
+                  </div>
+                  <div className="col-span-3 text-right text-xs text-muted-foreground">
+                    Go →
+                  </div>
+
+                  <div className="col-span-12 mt-4 grid grid-cols-2 gap-4 border-t border-border pt-4 text-xs">
+                    <div>
+                      <p className="text-muted-foreground">[ Tipo ]</p>
+                      <p className="mt-1 text-foreground/90">{c.type}</p>
+                    </div>
+                    <div>
+                      <p className="text-muted-foreground">[ Año ]</p>
+                      <p className="mt-1 text-foreground/90">{c.year}</p>
+                    </div>
+                  </div>
                 </div>
               </a>
             </Reveal>

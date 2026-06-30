@@ -1,82 +1,61 @@
-import { Sparkles, Instagram, Mail } from "lucide-react";
-
 const links = [
   { href: "#servicios", label: "Servicios" },
-  { href: "#proceso", label: "Cómo trabajamos" },
-  { href: "#portfolio", label: "Portfolio" },
-  { href: "#faq", label: "Preguntas frecuentes" },
+  { href: "#trabajo", label: "Trabajo" },
+  { href: "#proceso", label: "Proceso" },
+  { href: "#faq", label: "FAQ" },
   { href: "#contacto", label: "Contacto" },
 ];
 
 export function Footer() {
   return (
-    <footer className="bg-ink text-cream">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-4">
-        <div>
-          <div className="flex items-center gap-2">
-            <span className="grid h-9 w-9 place-items-center rounded-full bg-mustard text-ink">
-              <Sparkles className="h-4 w-4" />
-            </span>
-            <span className="font-display text-xl font-bold">Lumen</span>
+    <footer className="border-t border-border bg-background">
+      <div className="mx-auto max-w-[1600px] px-6 py-12 sm:px-10">
+        <div className="grid gap-10 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <p className="font-display text-2xl font-semibold tracking-tight">
+              Lumen — Estudio digital
+            </p>
+            <p className="mt-3 max-w-sm text-sm text-muted-foreground">
+              Soluciones digitales para negocios reales. Mar del Plata, Argentina.
+            </p>
           </div>
-          <p className="mt-4 text-sm text-cream/70">
-            Estudio digital en Mar del Plata. Soluciones claras para hacer crecer tu
-            negocio online.
-          </p>
-        </div>
-
-        <nav aria-label="Footer">
-          <h3 className="font-display text-sm font-bold uppercase tracking-wider text-cream">
-            Navegación
-          </h3>
-          <ul className="mt-4 space-y-2 text-sm text-cream/70">
-            {links.map((l) => (
-              <li key={l.href}>
-                <a href={l.href} className="hover:text-mustard-soft">
-                  {l.label}
+          <nav aria-label="Footer" className="md:col-span-4">
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Navegar</p>
+            <ul className="mt-4 grid grid-cols-2 gap-2 text-sm">
+              {links.map((l) => (
+                <li key={l.href}>
+                  <a href={l.href} className="text-foreground/80 hover:text-foreground">
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div className="md:col-span-3">
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Seguir</p>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li>
+                <a
+                  href="https://instagram.com/lumendev.estudio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
+                  Instagram ↗
                 </a>
               </li>
-            ))}
-          </ul>
-        </nav>
-
-        <div>
-          <h3 className="font-display text-sm font-bold uppercase tracking-wider text-cream">
-            Contacto
-          </h3>
-          <ul className="mt-4 space-y-2 text-sm text-cream/70">
-            <li>
-              <a
-                href="mailto:hola@lumendev.estudio"
-                className="inline-flex items-center gap-2 hover:text-mustard-soft"
-              >
-                <Mail className="h-4 w-4" /> hola@lumendev.estudio
-              </a>
-            </li>
-            <li>Mar del Plata, Argentina</li>
-          </ul>
+              <li>
+                <a href="mailto:hola@lumendev.estudio" className="hover:underline">
+                  hola@lumendev.estudio
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-
-        <div>
-          <h3 className="font-display text-sm font-bold uppercase tracking-wider text-cream">
-            Seguinos
-          </h3>
-          <a
-            href="https://instagram.com/lumendev.estudio"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram de Lumen"
-            className="mt-4 grid h-11 w-11 place-items-center rounded-full bg-cream/10 transition-colors hover:bg-mustard hover:text-ink"
-          >
-            <Instagram className="h-4 w-4" />
-          </a>
+        <div className="mt-12 flex flex-col items-start justify-between gap-2 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center">
+          <span>© {new Date().getFullYear()} Lumen Estudio</span>
+          <span>Mar del Plata · AR</span>
         </div>
-      </div>
-
-      <div className="border-t border-cream/10">
-        <p className="mx-auto max-w-7xl px-6 py-5 text-xs text-cream/60">
-          © {new Date().getFullYear()} Lumen Estudio · Mar del Plata, Argentina
-        </p>
       </div>
     </footer>
   );
