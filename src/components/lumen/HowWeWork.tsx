@@ -1,50 +1,71 @@
 import { Reveal } from "./Reveal";
+import bgVideo from "@/assets/howwework-bg.mp4.asset.json";
+
 
 const steps = [
   {
     n: "01",
-    title: "Explorar & entender",
-    desc: "Nos metemos a fondo en cada proyecto para entender objetivos, usuarios y contexto. Preguntamos, analizamos referencias y definimos una dirección clara antes de diseñar.",
+    title: "Diagnóstico",
+    desc: "Entendemos tu negocio, tu audiencia y los objetivos del proyecto.",
   },
   {
     n: "02",
-    title: "Diseñar & prototipar",
-    desc: "Damos vida a las ideas a través del diseño. Desde la identidad visual hasta prototipos UX/UI completos. Todo se construye con detalle y consistencia.",
+    title: "Desarrollo con IA",
+    desc: "Construimos rápido y prolijo usando herramientas de IA de punta.",
   },
   {
     n: "03",
-    title: "Construir & afinar",
-    desc: "Desarrollamos el sitio completo o trabajamos junto a tu equipo de devs, asegurando que el producto final mantenga la visión y evolucione con el feedback.",
+    title: "Lanzamiento y soporte",
+    desc: "Deploy, capacitación y mantenimiento continuo para que sigas creciendo.",
   },
 ];
 
 export function HowWeWork() {
   return (
-    <section id="proceso" className="relative border-t border-border bg-background py-24 sm:py-32">
-      <div className="mx-auto max-w-[1600px] px-6 sm:px-10">
-        <Reveal className="max-w-3xl">
-          <p className="text-sm text-muted-foreground">[ Cómo trabajamos ]</p>
-          <h2 className="mt-4 font-display text-5xl font-bold tracking-tight sm:text-7xl">
-            Tres pasos,
-            <br />
-            sin sorpresas.
+    <section
+      id="proceso"
+      className="relative overflow-hidden py-24 sm:py-32"
+    >
+      <video
+        src={bgVideo.url}
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover opacity-50"
+      />
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
+        <Reveal className="max-w-2xl">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-mustard">
+            Cómo trabajamos
+          </span>
+          <h2 className="mt-3 font-display text-4xl font-bold text-ink sm:text-5xl">
+            Un proceso simple, en tres pasos
           </h2>
         </Reveal>
 
-        <div className="mt-20 grid gap-12 md:grid-cols-3">
-          {steps.map((s, i) => (
-            <Reveal key={s.n} delay={i * 0.08}>
-              <div className="border-t border-border pt-6">
-                <span className="text-xs text-muted-foreground">[ {s.n} ]</span>
-                <h3 className="mt-6 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
-                  {s.title}
-                </h3>
-                <p className="mt-4 text-sm leading-relaxed text-foreground/75">
-                  {s.desc}
-                </p>
-              </div>
-            </Reveal>
-          ))}
+        <div className="relative mt-16">
+          {/* desktop connector */}
+          <div className="absolute left-0 right-0 top-8 hidden md:block">
+            <div className="mx-auto h-px w-full max-w-[80%] bg-gradient-to-r from-transparent via-ink/20 to-transparent" />
+          </div>
+
+          <ol className="grid gap-10 md:grid-cols-3 md:gap-8">
+            {steps.map((s, i) => (
+              <Reveal key={s.n} delay={i * 0.1}>
+                <li className="relative flex flex-col items-start md:items-center md:text-center">
+                  <span className="relative z-10 grid h-16 w-16 place-items-center rounded-full bg-ink text-mustard-soft font-display text-lg font-bold ring-8 ring-cream-warm">
+                    {s.n}
+                  </span>
+                  <h3 className="mt-6 font-display text-2xl font-bold text-ink">
+                    {s.title}
+                  </h3>
+                  <p className="mt-2 max-w-xs text-sm text-ink/70">{s.desc}</p>
+                </li>
+              </Reveal>
+            ))}
+          </ol>
         </div>
       </div>
     </section>

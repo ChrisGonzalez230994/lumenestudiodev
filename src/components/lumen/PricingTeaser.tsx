@@ -1,26 +1,33 @@
+import { ArrowRight } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 export function PricingTeaser() {
   return (
-    <section className="relative border-t border-border bg-background py-24 sm:py-32">
-      <div className="mx-auto max-w-[1600px] px-6 sm:px-10">
+    <section id="planes" className="relative py-20 sm:py-28">
+      <div className="mx-auto max-w-5xl px-6">
         <Reveal>
-          <p className="text-sm text-muted-foreground">[ Inversión ]</p>
-          <h2 className="mt-4 font-display text-5xl font-bold tracking-tight sm:text-7xl">
-            Desde USD 25.
-            <br />
-            <span className="text-muted-foreground">Sin paquetes cerrados.</span>
-          </h2>
-          <p className="mt-8 max-w-xl text-base text-foreground/75">
-            Cada servicio se cotiza según alcance. Te pasamos un presupuesto claro
-            en menos de 24 horas, con plazos y entregables definidos.
-          </p>
-          <a
-            href="#contacto"
-            className="mt-10 inline-flex items-center gap-2 border-b border-foreground/40 pb-1 text-sm text-foreground transition-colors hover:border-foreground"
+          <div
+            className="overflow-hidden rounded-[2rem] p-10 sm:p-14 text-center shadow-soft"
+            style={{ background: "var(--cream-warm)" }}
           >
-            Pedir presupuesto →
-          </a>
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-mustard">
+              Planes y precios
+            </span>
+            <h2 className="mt-3 font-display text-3xl font-bold text-ink sm:text-4xl">
+              Cada servicio tiene planes desde USD 25
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-base text-ink/70">
+              Soluciones pensadas para distintos momentos del negocio. Sin sorpresas
+              ni costos ocultos.
+            </p>
+            <a
+              href="#contacto"
+              className="mt-8 inline-flex min-h-[44px] items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-semibold text-cream transition-transform hover:scale-[1.03]"
+            >
+              Ver planes y precios
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
         </Reveal>
       </div>
     </section>
