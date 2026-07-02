@@ -64,7 +64,7 @@ export function FAQ() {
                     </span>
                   </button>
                   {isOpen && (
-                    <div id={`faq-panel-${i}`} className="px-6 pb-6 text-sm text-ink/75">
+                    <div id={`faq-panel-${i}`} className="px-6 pb-6 text-sm text-ink/70">
                       {item.a}
                     </div>
                   )}
