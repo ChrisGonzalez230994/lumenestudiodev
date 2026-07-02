@@ -78,13 +78,13 @@ export function Services() {
                 >
                   <s.icon className="h-6 w-6" />
                 </div>
-                <h3 className="mt-6 font-display text-xl font-bold text-ink">
+                <h3 className="mt-6 font-display text-xl font-semibold text-ink">
                   {s.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink/70">{s.desc}</p>
+                <p className="mt-2 text-sm leading-relaxed text-ink/60">{s.desc}</p>
                 <a
                   href="#contacto"
-                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-ink"
+                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-mustard-soft"
                   aria-label={`Conocer más sobre ${s.title}`}
                 >
                   Conocer más
