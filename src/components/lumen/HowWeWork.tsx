@@ -33,14 +33,21 @@ export function HowWeWork() {
         loop
         playsInline
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover opacity-50"
+        className="absolute inset-0 h-full w-full object-cover opacity-25"
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(10,10,11,0.85) 0%, rgba(10,10,11,0.7) 50%, rgba(10,10,11,0.95) 100%)",
+        }}
       />
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <Reveal className="max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-mustard">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-mustard-soft">
             Cómo trabajamos
           </span>
-          <h2 className="mt-3 font-display text-4xl font-bold text-ink sm:text-5xl">
+          <h2 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">
             Un proceso simple, en tres pasos
           </h2>
         </Reveal>
@@ -48,14 +55,14 @@ export function HowWeWork() {
         <div className="relative mt-16">
           {/* desktop connector */}
           <div className="absolute left-0 right-0 top-8 hidden md:block">
-            <div className="mx-auto h-px w-full max-w-[80%] bg-gradient-to-r from-transparent via-ink/20 to-transparent" />
+            <div className="mx-auto h-px w-full max-w-[80%] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
           </div>
 
           <ol className="grid gap-10 md:grid-cols-3 md:gap-8">
             {steps.map((s, i) => (
               <Reveal key={s.n} delay={i * 0.1}>
                 <li className="relative flex flex-col items-start md:items-center md:text-center">
-                  <span className="relative z-10 grid h-16 w-16 place-items-center rounded-full bg-ink text-mustard-soft font-display text-lg font-bold ring-8 ring-cream-warm">
+                  <span className="relative z-10 grid h-16 w-16 place-items-center rounded-full border border-white/10 bg-cream-warm text-mustard-soft font-display text-lg font-semibold ring-8 ring-cream">
                     {s.n}
                   </span>
                   <h3 className="mt-6 font-display text-2xl font-bold text-ink">
