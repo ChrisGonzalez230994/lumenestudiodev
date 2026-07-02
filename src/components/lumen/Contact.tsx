@@ -43,18 +43,18 @@ export function Contact() {
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <div
-            className="overflow-hidden rounded-[2rem] p-8 sm:p-14 shadow-soft"
+            className="overflow-hidden rounded-[2rem] border border-white/10 p-8 sm:p-14"
             style={{ background: "var(--cream-warm)" }}
           >
             <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
               <div>
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-mustard">
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-mustard-soft">
                   Contacto
                 </span>
-                <h2 className="mt-3 font-display text-4xl font-bold text-ink sm:text-5xl">
+                <h2 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">
                   Encendamos tu próximo proyecto
                 </h2>
-                <p className="mt-4 text-base text-ink/70">
+                <p className="mt-4 text-base text-ink/65">
                   Contanos en qué estás pensando. Te respondemos en menos de 24 hs.
                 </p>
 
