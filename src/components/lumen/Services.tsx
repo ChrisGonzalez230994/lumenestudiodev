@@ -53,38 +53,38 @@ export function Services() {
     <section id="servicios" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-mustard">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-mustard-soft">
             Servicios
           </span>
-          <h2 className="mt-3 font-display text-4xl font-bold text-ink sm:text-5xl">
+          <h2 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">
             Seis formas de iluminar tu presencia digital
           </h2>
-          <p className="mt-4 text-base text-muted-foreground sm:text-lg">
+          <p className="mt-4 text-base text-ink/60 sm:text-lg">
             Elegí el servicio que mejor encaja con tu momento. Todos pensados para
             negocios reales que necesitan resultados claros.
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
             <Reveal key={s.id} delay={i * 0.06}>
               <article
-                className="group relative h-full overflow-hidden rounded-3xl p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft"
+                className="group relative h-full overflow-hidden rounded-3xl border border-white/8 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/15"
                 style={{ background: "var(--cream-warm)" }}
               >
                 <div
-                  className="grid h-12 w-12 place-items-center rounded-2xl bg-mustard text-ink"
+                  className="grid h-12 w-12 place-items-center rounded-2xl bg-mustard/15 text-mustard-soft ring-1 ring-mustard/20"
                   aria-hidden="true"
                 >
                   <s.icon className="h-6 w-6" />
                 </div>
-                <h3 className="mt-6 font-display text-xl font-bold text-ink">
+                <h3 className="mt-6 font-display text-xl font-semibold text-ink">
                   {s.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink/70">{s.desc}</p>
+                <p className="mt-2 text-sm leading-relaxed text-ink/60">{s.desc}</p>
                 <a
                   href="#contacto"
-                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-ink"
+                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-mustard-soft"
                   aria-label={`Conocer más sobre ${s.title}`}
                 >
                   Conocer más

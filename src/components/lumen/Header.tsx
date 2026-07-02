@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X, Asterisk, ArrowRight } from "lucide-react";
 
 const links = [
   { href: "#servicios", label: "Servicios" },
-  { href: "#proceso", label: "Cómo trabajamos" },
+  { href: "#proceso", label: "Proceso" },
   { href: "#portfolio", label: "Portfolio" },
-  { href: "#faq", label: "Preguntas frecuentes" },
+  { href: "#faq", label: "FAQ" },
   { href: "#contacto", label: "Contacto" },
 ];
 
@@ -14,7 +14,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.85);
+    const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -22,37 +22,27 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-solid" : "glass-light"
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        scrolled ? "py-3" : "py-5"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <a href="#top" className="flex items-center gap-2">
-          <span
-            className={`grid h-9 w-9 place-items-center rounded-full transition-colors ${
-              scrolled ? "bg-mustard text-ink" : "bg-white/20 text-white"
-            }`}
-            aria-hidden="true"
-          >
-            <Sparkles className="h-4 w-4" />
-          </span>
-          <span
-            className={`font-display text-xl font-bold tracking-tight transition-colors ${
-              scrolled ? "text-ink" : "text-white"
-            }`}
-          >
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6">
+        <a href="#top" className="inline-flex items-center gap-2 text-ink">
+          <Asterisk className="h-5 w-5 text-mustard" aria-hidden="true" />
+          <span className="font-display text-lg font-semibold tracking-tight">
             Lumen
           </span>
         </a>
 
-        <nav aria-label="Principal" className="hidden lg:flex items-center gap-7">
+        <nav
+          aria-label="Principal"
+          className="hidden lg:flex items-center gap-1 rounded-full pill-nav px-2 py-1.5"
+        >
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className={`text-sm font-medium transition-colors ${
-                scrolled ? "text-ink/80 hover:text-ink" : "text-white/85 hover:text-white"
-              }`}
+              className="rounded-full px-4 py-1.5 text-sm text-ink/75 transition-colors hover:bg-white/5 hover:text-ink"
             >
               {l.label}
             </a>
@@ -61,35 +51,32 @@ export function Header() {
 
         <a
           href="#contacto"
-          className="hidden lg:inline-flex items-center rounded-full bg-mustard px-5 py-2.5 text-sm font-semibold text-ink shadow-soft transition-transform hover:scale-[1.03]"
+          className="hidden lg:inline-flex items-center gap-1.5 rounded-full pill-nav px-4 py-2 text-sm font-medium text-ink transition-colors hover:bg-white/5"
         >
           Empezar proyecto
+          <ArrowRight className="h-3.5 w-3.5" />
         </a>
 
         <button
           aria-label="Abrir menú"
           onClick={() => setOpen(true)}
-          className={`lg:hidden grid h-11 w-11 place-items-center rounded-full ${
-            scrolled ? "bg-ink/5 text-ink" : "bg-white/15 text-white"
-          }`}
+          className="lg:hidden grid h-11 w-11 place-items-center rounded-full pill-nav text-ink"
         >
           <Menu className="h-5 w-5" />
         </button>
       </div>
 
       {open && (
-        <div className="fixed inset-0 z-[60] bg-ink/90 backdrop-blur-xl animate-fade-in">
-          <div className="flex items-center justify-between px-6 py-4">
-            <span className="flex items-center gap-2 text-white">
-              <span className="grid h-9 w-9 place-items-center rounded-full bg-mustard text-ink">
-                <Sparkles className="h-4 w-4" />
-              </span>
-              <span className="font-display text-xl font-bold">Lumen</span>
+        <div className="fixed inset-0 z-[60] bg-cream/95 backdrop-blur-xl animate-fade-in">
+          <div className="flex items-center justify-between px-6 py-5">
+            <span className="flex items-center gap-2 text-ink">
+              <Asterisk className="h-5 w-5 text-mustard" />
+              <span className="font-display text-lg font-semibold">Lumen</span>
             </span>
             <button
               aria-label="Cerrar menú"
               onClick={() => setOpen(false)}
-              className="grid h-11 w-11 place-items-center rounded-full bg-white/10 text-white"
+              className="grid h-11 w-11 place-items-center rounded-full pill-nav text-ink"
             >
               <X className="h-5 w-5" />
             </button>
@@ -100,7 +87,7 @@ export function Header() {
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="font-display text-3xl font-bold text-white"
+                className="font-display text-3xl font-semibold text-ink"
               >
                 {l.label}
               </a>
@@ -108,9 +95,10 @@ export function Header() {
             <a
               href="#contacto"
               onClick={() => setOpen(false)}
-              className="mt-4 inline-flex w-fit items-center rounded-full bg-mustard px-6 py-3 text-base font-semibold text-ink"
+              className="mt-4 inline-flex w-fit items-center gap-2 rounded-full bg-ink px-6 py-3 text-base font-medium text-cream"
             >
               Empezar proyecto
+              <ArrowRight className="h-4 w-4" />
             </a>
           </nav>
         </div>
