@@ -11,29 +11,32 @@ export function FinalCTA() {
       <div className="mx-auto max-w-5xl px-6">
         <Reveal>
           <div
-            className="overflow-hidden rounded-[2rem] p-10 sm:p-16 text-center shadow-glow"
-            style={{ background: "var(--ink)" }}
+            className="relative overflow-hidden rounded-[2rem] border border-white/10 p-10 sm:p-16 text-center"
+            style={{
+              background:
+                "radial-gradient(120% 100% at 50% 0%, rgba(107,166,255,0.18) 0%, rgba(23,23,26,1) 60%)",
+            }}
           >
-            <h2 className="font-display text-3xl font-bold text-cream sm:text-5xl">
+            <h2 className="font-display text-3xl font-semibold text-ink sm:text-5xl">
               ¿Empezamos tu proyecto?
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-base text-cream/80">
-              Contanos qué necesitás y armamos juntos la mejor solución. Te respondemos
-              en menos de 24 horas.
+            <p className="mx-auto mt-4 max-w-xl text-base text-ink/70">
+              Contanos qué necesitás y armamos juntos la mejor solución. Te
+              respondemos en menos de 24 horas.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-mustard px-6 py-3.5 text-sm font-semibold text-ink transition-transform hover:scale-[1.03]"
+                className="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-mustard px-6 py-3.5 text-sm font-semibold text-cream transition-transform hover:scale-[1.03]"
               >
                 <MessageCircle className="h-4 w-4" />
                 Hablar por WhatsApp
               </a>
               <a
                 href="#contacto"
-                className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-cream/30 bg-cream/5 px-6 py-3.5 text-sm font-semibold text-cream transition-colors hover:bg-cream/10"
+                className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-white/10"
               >
                 Escribir un mensaje
                 <ArrowRight className="h-4 w-4" />
