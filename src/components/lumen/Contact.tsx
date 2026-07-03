@@ -88,14 +88,14 @@ export function Contact() {
                     </span>
                   </a>
                   <a
-                    href="mailto:hola@lumendev.estudio"
+                    href="mailto:lumendev.estudio@gmail.com"
                     className="flex min-h-[44px] items-center gap-4 rounded-2xl bg-card p-4 transition-transform hover:-translate-y-0.5"
                   >
                     <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-mustard text-ink">
                       <Mail className="h-5 w-5" />
                     </span>
                     <span className="min-w-0 flex-1">
-                      <span className="block truncate text-sm font-semibold text-ink">hola@lumendev.estudio</span>
+                      <span className="block truncate text-sm font-semibold text-ink">lumendev.estudio@gmail.com</span>
                       <span className="block text-xs text-ink/60">Para propuestas detalladas</span>
                     </span>
                   </a>
