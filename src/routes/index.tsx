@@ -60,7 +60,7 @@ function Index() {
       <Hero />
       <Services />
       <HowWeWork />
-      <PricingTeaser />
+      
       <Portfolio />
       <FAQ />
       <FinalCTA />
