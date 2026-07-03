@@ -1,6 +1,4 @@
 import { Reveal } from "./Reveal";
-import bgVideo from "@/assets/howwework-bg.mp4.asset.json";
-
 
 const steps = [
   {
@@ -22,26 +20,7 @@ const steps = [
 
 export function HowWeWork() {
   return (
-    <section
-      id="proceso"
-      className="relative overflow-hidden py-24 sm:py-32"
-    >
-      <video
-        src={bgVideo.url}
-        autoPlay
-        muted
-        loop
-        playsInline
-        aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover opacity-25"
-      />
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(10,10,11,0.85) 0%, rgba(10,10,11,0.7) 50%, rgba(10,10,11,0.95) 100%)",
-        }}
-      />
+    <section id="proceso" className="relative overflow-hidden py-24 sm:py-32">
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <Reveal className="max-w-2xl">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-mustard-soft">
@@ -53,7 +32,6 @@ export function HowWeWork() {
         </Reveal>
 
         <div className="relative mt-16">
-          {/* desktop connector */}
           <div className="absolute left-0 right-0 top-8 hidden md:block">
             <div className="mx-auto h-px w-full max-w-[80%] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
           </div>
