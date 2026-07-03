@@ -40,7 +40,7 @@ export function Contact() {
 
   return (
     <section id="contacto" className="relative py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <Reveal>
           <div
             className="overflow-hidden rounded-[2rem] border border-white/10 p-8 sm:p-14"
