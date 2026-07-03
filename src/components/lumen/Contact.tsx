@@ -116,7 +116,7 @@ export function Contact() {
                 <form
                   onSubmit={onSubmit}
                   noValidate
-                  className="flex flex-col gap-4 rounded-3xl bg-card p-8 shadow-soft"
+                  className="flex flex-col gap-4 rounded-3xl bg-card p-5 shadow-soft sm:p-8"
                 >
                   <Field
                     id="name"
