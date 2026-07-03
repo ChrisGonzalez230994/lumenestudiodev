@@ -45,10 +45,6 @@ export function Hero() {
       />
 
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 pt-28 pb-16 text-center animate-fade-in">
-        <span className="mb-8 inline-flex items-center gap-2 rounded-full pill-nav px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.22em] text-ink/80">
-          <span className="h-1.5 w-1.5 rounded-full bg-mustard" aria-hidden="true" />
-          Estudio digital · Mar del Plata
-        </span>
 
         <h1 className="font-display text-5xl font-semibold leading-[1.02] tracking-tight text-ink sm:text-7xl lg:text-[7.5rem]">
           Lumen <span className="text-mustard-soft">studio</span>.

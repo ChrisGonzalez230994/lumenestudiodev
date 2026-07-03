@@ -51,7 +51,7 @@ export function Contact() {
                 <span className="text-xs font-semibold uppercase tracking-[0.2em] text-mustard-soft">
                   Contacto
                 </span>
-                <h2 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">
+                <h2 className="mt-3 font-display text-3xl font-semibold leading-[1.1] text-ink sm:text-4xl lg:text-5xl">
                   Encendamos tu próximo proyecto
                 </h2>
                 <p className="mt-4 text-base text-ink/65">
@@ -91,11 +91,11 @@ export function Contact() {
                     href="mailto:hola@lumendev.estudio"
                     className="flex min-h-[44px] items-center gap-4 rounded-2xl bg-card p-4 transition-transform hover:-translate-y-0.5"
                   >
-                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-mustard text-ink">
+                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-mustard text-ink">
                       <Mail className="h-5 w-5" />
                     </span>
-                    <span>
-                      <span className="block text-sm font-semibold text-ink">hola@lumendev.estudio</span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block truncate text-sm font-semibold text-ink">hola@lumendev.estudio</span>
                       <span className="block text-xs text-ink/60">Para propuestas detalladas</span>
                     </span>
                   </a>
