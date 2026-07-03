@@ -3,7 +3,7 @@ import { Header } from "@/components/lumen/Header";
 import { Hero } from "@/components/lumen/Hero";
 import { Services } from "@/components/lumen/Services";
 import { HowWeWork } from "@/components/lumen/HowWeWork";
-import { PricingTeaser } from "@/components/lumen/PricingTeaser";
+
 import { Portfolio } from "@/components/lumen/Portfolio";
 import { FAQ } from "@/components/lumen/FAQ";
 import { FinalCTA } from "@/components/lumen/FinalCTA";
