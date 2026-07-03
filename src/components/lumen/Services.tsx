@@ -31,7 +31,7 @@ export const services = [
   {
     id: "portfolios",
     icon: Briefcase,
-    title: "Portfolios profesionales",
+    title: "Portfolios digitales",
     desc: "Para abogados, diseñadores, fotógrafos y consultores que necesitan una vidriera online.",
   },
   {
