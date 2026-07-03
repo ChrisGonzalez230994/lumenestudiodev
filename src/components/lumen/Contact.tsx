@@ -40,13 +40,13 @@ export function Contact() {
 
   return (
     <section id="contacto" className="relative py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <Reveal>
           <div
-            className="overflow-hidden rounded-[2rem] border border-white/10 p-8 sm:p-14"
+            className="overflow-hidden rounded-[1.75rem] border border-white/10 p-5 sm:rounded-[2rem] sm:p-10 lg:p-14"
             style={{ background: "var(--cream-warm)" }}
           >
-            <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+            <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
               <div>
                 <span className="text-xs font-semibold uppercase tracking-[0.2em] text-mustard-soft">
                   Contacto
@@ -116,7 +116,7 @@ export function Contact() {
                 <form
                   onSubmit={onSubmit}
                   noValidate
-                  className="flex flex-col gap-4 rounded-3xl bg-card p-8 shadow-soft"
+                  className="flex flex-col gap-4 rounded-3xl bg-card p-5 shadow-soft sm:p-8"
                 >
                   <Field
                     id="name"

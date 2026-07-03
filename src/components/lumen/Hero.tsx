@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import smokeVideo from "@/assets/hero-smoke.mp4.asset.json";
-import posterImg from "@/assets/hero-poster.jpg";
 
 const WHATSAPP_URL =
   "https://wa.me/5492235555555?text=" +
@@ -22,13 +21,12 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-cream"
+      className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-ink"
     >
-      {!reducedMotion ? (
+      {!reducedMotion && (
         <video
           ref={videoRef}
           src={smokeVideo.url}
-          poster={posterImg}
           autoPlay
           muted
           loop
@@ -36,18 +34,8 @@ export function Hero() {
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover opacity-90"
         />
-      ) : (
-        <img
-          src={posterImg}
-          alt=""
-          aria-hidden="true"
-          width={1920}
-          height={1080}
-          className="absolute inset-0 h-full w-full object-cover opacity-80"
-        />
       )}
 
-      {/* dark vignette to keep text legible */}
       <div
         className="absolute inset-0"
         style={{
