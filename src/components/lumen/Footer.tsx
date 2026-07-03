@@ -46,10 +46,10 @@ export function Footer() {
           <ul className="mt-4 space-y-2 text-sm text-ink/75">
             <li>
               <a
-                href="mailto:hola@lumendev.estudio"
+                href="mailto:lumendev.estudio@gmail.com"
                 className="inline-flex items-center gap-2 hover:text-mustard-soft"
               >
-                <Mail className="h-4 w-4" /> hola@lumendev.estudio
+                <Mail className="h-4 w-4" /> lumendev.estudio@gmail.com
               </a>
             </li>
             <li>Mar del Plata, Argentina</li>
