@@ -51,7 +51,7 @@ export function Contact() {
                 <span className="text-xs font-semibold uppercase tracking-[0.2em] text-mustard-soft">
                   Contacto
                 </span>
-                <h2 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">
+                <h2 className="mt-3 font-display text-3xl font-semibold leading-[1.1] text-ink sm:text-4xl lg:text-5xl">
                   Encendamos tu próximo proyecto
                 </h2>
                 <p className="mt-4 text-base text-ink/65">
