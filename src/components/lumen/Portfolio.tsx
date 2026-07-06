@@ -30,13 +30,16 @@ export function Portfolio() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {cases.map((c, i) => (
             <Reveal key={c.name + i} delay={i * 0.06}>
               <a
-                href="#contacto"
+                href={c.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group block overflow-hidden rounded-3xl border border-white/8 bg-cream-warm transition-all hover:-translate-y-1 hover:border-white/15"
               >
+
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={c.img}
