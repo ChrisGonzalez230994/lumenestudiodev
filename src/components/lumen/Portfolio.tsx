@@ -1,14 +1,14 @@
 import { Reveal } from "./Reveal";
-import case1 from "@/assets/case-1.jpg";
-import case2 from "@/assets/case-2.jpg";
-import case3 from "@/assets/case-3.jpg";
+import case1 from "@/assets/case-icb.png.asset.json";
+import case2 from "@/assets/case-stele.png.asset.json";
+import case3 from "@/assets/case-botbol.png.asset.json";
 
 const cases = [
-  { img: case1, name: "ICB Mar del Plata", tag: "Sitio institucional", alt: "Vista previa del sitio institucional ICB Mar del Plata" },
-  { img: case2, name: "Encuadernación Stele", tag: "Catálogo digital", alt: "Vista previa del catálogo digital de Encuadernación Stele" },
-  { img: case3, name: "Casa Mate", tag: "E-commerce", alt: "Vista previa de la tienda online Casa Mate" },
-  { img: case1, name: "Estudio Solana", tag: "Landing Page", alt: "Vista previa de la landing page Estudio Solana" },
+  { img: case1.url, name: "ICB Mar del Plata", tag: "Sitio institucional", href: "https://icbmardelplata.lovable.app", alt: "Vista previa del sitio institucional ICB Mar del Plata" },
+  { img: case2.url, name: "Encuadernación Stele", tag: "Landing page", href: "https://encuadernacionstele.lovable.app/", alt: "Vista previa de la landing page de Encuadernación Stele" },
+  { img: case3.url, name: "Botbol Clothes", tag: "E-commerce", href: "https://botbolclothes.lovable.app", alt: "Vista previa de la tienda online Botbol Clothes" },
 ];
+
 
 export function Portfolio() {
   return (

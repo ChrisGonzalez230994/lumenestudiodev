@@ -31,18 +31,15 @@ export function Hero() {
           muted
           loop
           playsInline
+          preload="auto"
+          disablePictureInPicture
+          controls={false}
           aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover opacity-90"
+          tabIndex={-1}
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover [&::-webkit-media-controls]:!hidden [&::-webkit-media-controls-start-playback-button]:!hidden [&::-webkit-media-controls-overlay-play-button]:!hidden"
         />
       )}
 
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(120% 80% at 50% 50%, rgba(10,10,11,0.35) 0%, rgba(10,10,11,0.65) 55%, rgba(10,10,11,0.95) 100%)",
-        }}
-      />
 
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 pt-28 pb-16 text-center animate-fade-in">
 
