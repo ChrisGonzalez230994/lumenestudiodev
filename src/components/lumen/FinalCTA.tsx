@@ -2,7 +2,7 @@ import { MessageCircle, ArrowRight } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 const WHATSAPP_URL =
-  "https://wa.me/5492235555555?text=" +
+  "https://wa.me/542236195381?text=" +
   encodeURIComponent("¡Hola Lumen! Quiero empezar un proyecto.");
 
 export function FinalCTA() {

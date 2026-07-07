@@ -4,7 +4,7 @@ import smokeVideoMp4 from "@/assets/hero-smoke-autoplay.mp4";
 import smokeVideoWebm from "@/assets/hero-smoke-autoplay.webm";
 
 const WHATSAPP_URL =
-  "https://wa.me/5492235555555?text=" +
+  "https://wa.me/542236195381?text=" +
   encodeURIComponent("¡Hola Lumen! Quiero más info sobre sus servicios.");
 
 export function Hero() {

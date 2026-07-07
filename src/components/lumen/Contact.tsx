@@ -4,7 +4,7 @@ import { Reveal } from "./Reveal";
 import { services } from "./Services";
 
 const WHATSAPP_URL =
-  "https://wa.me/5492235555555?text=" +
+  "https://wa.me/542236195381?text=" +
   encodeURIComponent("¡Hola Lumen! Quiero más info sobre sus servicios.");
 
 type Errors = Partial<Record<"name" | "email" | "message" | "service", string>>;
