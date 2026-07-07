@@ -10,7 +10,6 @@ const WHATSAPP_URL =
 export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -44,21 +43,16 @@ export function Hero() {
       const playPromise = video.play();
       if (playPromise) {
         playPromise
-          .then(() => setIsVideoPlaying(true))
-          .catch(() => setIsVideoPlaying(false));
+          .then(() => undefined)
+          .catch(() => undefined);
       }
     };
 
-    const handlePlaying = () => setIsVideoPlaying(true);
-    const handlePause = () => {
-      setIsVideoPlaying(false);
-      playVideo();
-    };
+    const handlePause = () => playVideo();
     const handleVisibilityChange = () => {
       if (!document.hidden) playVideo();
     };
 
-    video.addEventListener("playing", handlePlaying);
     video.addEventListener("canplay", playVideo);
     video.addEventListener("pause", handlePause);
     document.addEventListener("visibilitychange", handleVisibilityChange);
@@ -68,7 +62,6 @@ export function Hero() {
 
     return () => {
       window.clearTimeout(retry);
-      video.removeEventListener("playing", handlePlaying);
       video.removeEventListener("canplay", playVideo);
       video.removeEventListener("pause", handlePause);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
@@ -93,9 +86,7 @@ export function Hero() {
           controls={false}
           aria-hidden="true"
           tabIndex={-1}
-          className={`pointer-events-none absolute inset-0 h-full w-full object-cover transition-opacity duration-300 [--webkit-media-controls:none] [&::-webkit-media-controls]:!hidden [&::-webkit-media-controls-enclosure]:!hidden [&::-webkit-media-controls-panel]:!hidden [&::-webkit-media-controls-play-button]:!hidden [&::-webkit-media-controls-start-playback-button]:!hidden [&::-webkit-media-controls-overlay-play-button]:!hidden ${
-            isVideoPlaying ? "opacity-100" : "opacity-0"
-          }`}
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover [--webkit-media-controls:none] [&::-webkit-media-controls]:!hidden [&::-webkit-media-controls-enclosure]:!hidden [&::-webkit-media-controls-panel]:!hidden [&::-webkit-media-controls-play-button]:!hidden [&::-webkit-media-controls-start-playback-button]:!hidden [&::-webkit-media-controls-overlay-play-button]:!hidden"
         >
           <source src={smokeVideoWebm} type="video/webm" />
           <source src={smokeVideoMp4} type="video/mp4" />
