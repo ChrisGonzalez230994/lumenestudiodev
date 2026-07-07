@@ -43,7 +43,9 @@ export function Hero() {
     const playVideo = () => {
       const playPromise = video.play();
       if (playPromise) {
-        playPromise.catch(() => setIsVideoPlaying(false));
+        playPromise
+          .then(() => setIsVideoPlaying(true))
+          .catch(() => setIsVideoPlaying(false));
       }
     };
 
