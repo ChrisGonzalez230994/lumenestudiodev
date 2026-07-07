@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, MessageCircle } from "lucide-react";
-import smokeVideo from "@/assets/hero-smoke.mp4.asset.json";
+import smokeVideoMp4 from "@/assets/hero-smoke-autoplay.mp4";
+import smokeVideoWebm from "@/assets/hero-smoke-autoplay.webm";
 
 const WHATSAPP_URL =
   "https://wa.me/5492235555555?text=" +
@@ -18,6 +19,55 @@ export function Hero() {
     return () => mq.removeEventListener("change", handler);
   }, []);
 
+  useEffect(() => {
+    if (reducedMotion) return;
+
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.autoplay = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.controls = false;
+    video.disablePictureInPicture = true;
+    video.setAttribute("muted", "");
+    video.setAttribute("autoplay", "");
+    video.setAttribute("loop", "");
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
+    video.removeAttribute("controls");
+
+    const playVideo = () => {
+      const playPromise = video.play();
+      if (playPromise) {
+        playPromise
+          .then(() => undefined)
+          .catch(() => undefined);
+      }
+    };
+
+    const handlePause = () => playVideo();
+    const handleVisibilityChange = () => {
+      if (!document.hidden) playVideo();
+    };
+
+    video.addEventListener("canplay", playVideo);
+    video.addEventListener("pause", handlePause);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    playVideo();
+    const retry = window.setTimeout(playVideo, 600);
+
+    return () => {
+      window.clearTimeout(retry);
+      video.removeEventListener("canplay", playVideo);
+      video.removeEventListener("pause", handlePause);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [reducedMotion]);
+
   return (
     <section
       id="top"
@@ -26,18 +76,21 @@ export function Hero() {
       {!reducedMotion && (
         <video
           ref={videoRef}
-          src={smokeVideo.url}
           autoPlay
           muted
           loop
           playsInline
+          webkit-playsinline="true"
           preload="auto"
           disablePictureInPicture
           controls={false}
           aria-hidden="true"
           tabIndex={-1}
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover [&::-webkit-media-controls]:!hidden [&::-webkit-media-controls-start-playback-button]:!hidden [&::-webkit-media-controls-overlay-play-button]:!hidden"
-        />
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover [--webkit-media-controls:none] [&::-webkit-media-controls]:!hidden [&::-webkit-media-controls-enclosure]:!hidden [&::-webkit-media-controls-panel]:!hidden [&::-webkit-media-controls-play-button]:!hidden [&::-webkit-media-controls-start-playback-button]:!hidden [&::-webkit-media-controls-overlay-play-button]:!hidden"
+        >
+          <source src={smokeVideoWebm} type="video/webm" />
+          <source src={smokeVideoMp4} type="video/mp4" />
+        </video>
       )}
 
 
