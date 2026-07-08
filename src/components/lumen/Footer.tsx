@@ -15,9 +15,12 @@ export function Footer() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div className="flex items-center gap-2">
-            <Asterisk className="h-5 w-5 text-mustard" />
-            <span className="font-display text-lg font-semibold">Lumen</span>
+          <div className="flex items-center">
+            <img
+              src={logoLumenAsset.url}
+              alt="Lumen"
+              className="h-8 w-auto"
+            />
           </div>
           <p className="mt-4 text-sm text-ink/60">
             Estudio digital en Mar del Plata. Soluciones claras para hacer crecer tu
