@@ -28,11 +28,12 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6">
-        <a href="#top" className="inline-flex items-center gap-2 text-ink">
-          <Asterisk className="h-5 w-5 text-mustard" aria-hidden="true" />
-          <span className="font-display text-lg font-semibold tracking-tight">
-            Lumen
-          </span>
+        <a href="#top" className="inline-flex items-center">
+          <img
+            src={logoLumenAsset.url}
+            alt="Lumen"
+            className="h-7 w-auto"
+          />
         </a>
 
         <nav
