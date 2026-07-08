@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Menu, X, Asterisk, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
+import logoLumenAsset from "@/assets/logo-lumen.png.asset.json";
 
 const links = [
   { href: "#servicios", label: "Servicios" },
