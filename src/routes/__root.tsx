@@ -87,8 +87,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Lovable App" },
       { name: "twitter:description", content: "Lumen Studio Showcase is a modern, premium React landing page for a digital studio." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/GuzvUYdj3Rc5hTpjV0S9uJ4f79x1/social-images/social-1782690168489-Logo_principal.webp" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/GuzvUYdj3Rc5hTpjV0S9uJ4f79x1/social-images/social-1782690168489-Logo_principal.webp" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/GuzvUYdj3Rc5hTpjV0S9uJ4f79x1/social-images/social-1783477611470-ChatGPT_Image_7_jul_2026,_23_26_24.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/GuzvUYdj3Rc5hTpjV0S9uJ4f79x1/social-images/social-1783477611470-ChatGPT_Image_7_jul_2026,_23_26_24.webp" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
