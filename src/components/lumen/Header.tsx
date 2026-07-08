@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Menu, X, Asterisk, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
+import logoLumenAsset from "@/assets/logo-lumen.png.asset.json";
 
 const links = [
   { href: "#servicios", label: "Servicios" },
@@ -27,11 +28,12 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6">
-        <a href="#top" className="inline-flex items-center gap-2 text-ink">
-          <Asterisk className="h-5 w-5 text-mustard" aria-hidden="true" />
-          <span className="font-display text-lg font-semibold tracking-tight">
-            Lumen
-          </span>
+        <a href="#top" className="inline-flex items-center">
+          <img
+            src={logoLumenAsset.url}
+            alt="Lumen"
+            className="h-7 w-auto"
+          />
         </a>
 
         <nav
@@ -69,10 +71,13 @@ export function Header() {
       {open && (
         <div className="fixed inset-0 z-[60] bg-cream/95 backdrop-blur-xl animate-fade-in">
           <div className="flex items-center justify-between px-6 py-5">
-            <span className="flex items-center gap-2 text-ink">
-              <Asterisk className="h-5 w-5 text-mustard" />
-              <span className="font-display text-lg font-semibold">Lumen</span>
-            </span>
+          <span className="inline-flex items-center">
+            <img
+              src={logoLumenAsset.url}
+              alt="Lumen"
+              className="h-7 w-auto"
+            />
+          </span>
             <button
               aria-label="Cerrar menú"
               onClick={() => setOpen(false)}
