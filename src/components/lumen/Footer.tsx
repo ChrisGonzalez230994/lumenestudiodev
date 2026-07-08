@@ -1,4 +1,5 @@
-import { Asterisk, Instagram, Mail } from "lucide-react";
+import { Instagram, Mail } from "lucide-react";
+import logoLumenAsset from "@/assets/logo-lumen.png.asset.json";
 
 const links = [
   { href: "#servicios", label: "Servicios" },
