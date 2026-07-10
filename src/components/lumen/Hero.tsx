@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import smokeVideoMp4 from "@/assets/hero-smoke-autoplay.mp4";
 import smokeVideoWebm from "@/assets/hero-smoke-autoplay.webm";
