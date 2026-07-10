@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 
 type Direction = "up" | "down" | "left" | "right" | "none";
@@ -19,8 +20,15 @@ export function Reveal({
   duration?: number;
 }) {
   const shouldReduce = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
 
-  if (shouldReduce) {
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Render plainly during SSR and until mounted to avoid hydration
+  // mismatches that leave content stuck at opacity 0.
+  if (!mounted || shouldReduce) {
     return <div className={className}>{children}</div>;
   }
 
@@ -38,7 +46,7 @@ export function Reveal({
     <motion.div
       initial={{ opacity: 0, x, y, filter: "blur(8px)", scale: 0.98 }}
       whileInView={{ opacity: 1, x: 0, y: 0, filter: "blur(0px)", scale: 1 }}
-      viewport={{ once: true, amount: 0.05 }}
+      viewport={{ once: true, amount: 0.05, margin: "0px 0px -5% 0px" }}
       transition={{ duration, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
@@ -46,4 +54,3 @@ export function Reveal({
     </motion.div>
   );
 }
-
