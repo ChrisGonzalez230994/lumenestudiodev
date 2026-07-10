@@ -20,6 +20,10 @@ export function Reveal({
 }) {
   const shouldReduce = useReducedMotion();
 
+  if (shouldReduce) {
+    return <div className={className}>{children}</div>;
+  }
+
   const offset: Record<Direction, { x: number; y: number }> = {
     up: { x: 0, y: distance },
     down: { x: 0, y: -distance },
@@ -32,25 +36,14 @@ export function Reveal({
 
   return (
     <motion.div
-      initial={
-        shouldReduce
-          ? { opacity: 0 }
-          : { opacity: 0, x, y, filter: "blur(8px)", scale: 0.98 }
-      }
-      whileInView={
-        shouldReduce
-          ? { opacity: 1 }
-          : { opacity: 1, x: 0, y: 0, filter: "blur(0px)", scale: 1 }
-      }
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{
-        duration,
-        delay,
-        ease: [0.22, 1, 0.36, 1],
-      }}
+      initial={{ opacity: 0, x, y, filter: "blur(8px)", scale: 0.98 }}
+      whileInView={{ opacity: 1, x: 0, y: 0, filter: "blur(0px)", scale: 1 }}
+      viewport={{ once: true, amount: 0.05 }}
+      transition={{ duration, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
       {children}
     </motion.div>
   );
 }
+
