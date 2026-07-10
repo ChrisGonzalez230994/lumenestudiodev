@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
 import logoLumenAsset from "@/assets/logo-lumen.png.asset.json";
 
