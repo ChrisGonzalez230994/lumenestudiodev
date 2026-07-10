@@ -12,7 +12,7 @@ export function Hero() {
 
 
   useEffect(() => {
-    if (reducedMotion) return;
+
 
     const video = videoRef.current;
     if (!video) return;
