@@ -58,7 +58,7 @@ export function Hero() {
       video.removeEventListener("pause", handlePause);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-  }, [reducedMotion]);
+  }, []);
 
   return (
     <section
