@@ -65,25 +65,24 @@ export function Hero() {
       id="top"
       className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-ink"
     >
-      {!reducedMotion && (
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          webkit-playsinline="true"
-          preload="auto"
-          disablePictureInPicture
-          controls={false}
-          aria-hidden="true"
-          tabIndex={-1}
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover [--webkit-media-controls:none] [&::-webkit-media-controls]:!hidden [&::-webkit-media-controls-enclosure]:!hidden [&::-webkit-media-controls-panel]:!hidden [&::-webkit-media-controls-play-button]:!hidden [&::-webkit-media-controls-start-playback-button]:!hidden [&::-webkit-media-controls-overlay-play-button]:!hidden"
-        >
-          <source src={smokeVideoWebm} type="video/webm" />
-          <source src={smokeVideoMp4} type="video/mp4" />
-        </video>
-      )}
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        webkit-playsinline="true"
+        preload="auto"
+        disablePictureInPicture
+        controls={false}
+        aria-hidden="true"
+        tabIndex={-1}
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover [--webkit-media-controls:none] [&::-webkit-media-controls]:!hidden [&::-webkit-media-controls-enclosure]:!hidden [&::-webkit-media-controls-panel]:!hidden [&::-webkit-media-controls-play-button]:!hidden [&::-webkit-media-controls-start-playback-button]:!hidden [&::-webkit-media-controls-overlay-play-button]:!hidden"
+      >
+        <source src={smokeVideoWebm} type="video/webm" />
+        <source src={smokeVideoMp4} type="video/mp4" />
+      </video>
+
 
 
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 pt-28 pb-16 text-center animate-fade-in">
