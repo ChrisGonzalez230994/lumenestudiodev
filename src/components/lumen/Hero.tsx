@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import smokeVideoMp4 from "@/assets/hero-smoke-autoplay.mp4";
 import smokeVideoWebm from "@/assets/hero-smoke-autoplay.webm";
@@ -9,18 +9,10 @@ const WHATSAPP_URL =
 
 export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [reducedMotion, setReducedMotion] = useState(false);
+
 
   useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
 
-  useEffect(() => {
-    if (reducedMotion) return;
 
     const video = videoRef.current;
     if (!video) return;
@@ -66,32 +58,31 @@ export function Hero() {
       video.removeEventListener("pause", handlePause);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-  }, [reducedMotion]);
+  }, []);
 
   return (
     <section
       id="top"
       className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-ink"
     >
-      {!reducedMotion && (
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          webkit-playsinline="true"
-          preload="auto"
-          disablePictureInPicture
-          controls={false}
-          aria-hidden="true"
-          tabIndex={-1}
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover [--webkit-media-controls:none] [&::-webkit-media-controls]:!hidden [&::-webkit-media-controls-enclosure]:!hidden [&::-webkit-media-controls-panel]:!hidden [&::-webkit-media-controls-play-button]:!hidden [&::-webkit-media-controls-start-playback-button]:!hidden [&::-webkit-media-controls-overlay-play-button]:!hidden"
-        >
-          <source src={smokeVideoWebm} type="video/webm" />
-          <source src={smokeVideoMp4} type="video/mp4" />
-        </video>
-      )}
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        webkit-playsinline="true"
+        preload="auto"
+        disablePictureInPicture
+        controls={false}
+        aria-hidden="true"
+        tabIndex={-1}
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover [--webkit-media-controls:none] [&::-webkit-media-controls]:!hidden [&::-webkit-media-controls-enclosure]:!hidden [&::-webkit-media-controls-panel]:!hidden [&::-webkit-media-controls-play-button]:!hidden [&::-webkit-media-controls-start-playback-button]:!hidden [&::-webkit-media-controls-overlay-play-button]:!hidden"
+      >
+        <source src={smokeVideoWebm} type="video/webm" />
+        <source src={smokeVideoMp4} type="video/mp4" />
+      </video>
+
 
 
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 pt-28 pb-16 text-center animate-fade-in">
