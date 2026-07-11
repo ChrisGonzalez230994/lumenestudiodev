@@ -53,13 +53,13 @@ export function Services() {
     <section id="servicios" className="section-light relative py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-mustard-soft">
+          <span className="text-xs font-semibold uppercase tracking-[0.1em] text-[#6B21C8]">
             Servicios
           </span>
-          <h2 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">
+          <h2 className="mt-3 font-display text-4xl font-semibold text-[#0D0D12] sm:text-5xl">
             Seis formas de iluminar tu presencia digital
           </h2>
-          <p className="mt-4 text-base text-ink/60 sm:text-lg">
+          <p className="mt-4 text-base text-[#4A4A6A] sm:text-lg">
             Elegí el servicio que mejor encaja con tu momento. Todos pensados para
             negocios reales que necesitan resultados claros.
           </p>
