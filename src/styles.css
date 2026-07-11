@@ -38,48 +38,72 @@
   --color-mustard-soft: var(--mustard-soft);
   --color-ink: var(--ink);
 
+  --color-purple-deep: #6B21C8;
+  --color-magenta: #C0186E;
+  --color-orange: #F97316;
+  --color-amber: #F5A623;
+
   --font-display: "Sora", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
 
   --shadow-soft: 0 10px 30px -12px rgba(0, 0, 0, 0.6);
-  --shadow-glow: 0 20px 80px -20px color-mix(in oklab, var(--mustard) 55%, transparent);
+  --shadow-glow: 0 20px 80px -20px rgba(192, 24, 110, 0.55);
 }
 
 :root {
   --radius: 1rem;
 
-  /* Dark palette (Halo-style) with blue accent
-     Semantic tokens are flipped: `ink` now means light foreground, `cream`/`cream-warm` mean dark surfaces */
-  --cream: #0a0a0b;              /* app background */
-  --cream-warm: #141416;         /* elevated dark panel */
-  --ink: #f5f5f7;                /* primary foreground (light) */
-  --mustard: #6ba6ff;            /* blue accent */
-  --mustard-soft: #a9cbff;       /* lighter blue accent */
+  /* Dark palette — new Lumen brand (purple → magenta → orange → amber) */
+  --cream: #0D0D12;              /* app background (darkest) */
+  --cream-warm: #1A1A2E;         /* elevated dark panels/cards */
+  --ink: #FFFFFF;                /* primary foreground (light) */
+  --mustard: #C0186E;            /* magenta accent */
+  --mustard-soft: #C0186E;       /* accent label color */
 
   --background: var(--cream);
   --foreground: var(--ink);
-  --card: #17171a;
+  --card: #16162A;
   --card-foreground: var(--ink);
-  --popover: #17171a;
+  --popover: #16162A;
   --popover-foreground: var(--ink);
   --primary: var(--mustard);
-  --primary-foreground: #0a0a0b;
-  --secondary: #17171a;
+  --primary-foreground: #FFFFFF;
+  --secondary: #1A1A2E;
   --secondary-foreground: var(--ink);
-  --muted: #17171a;
-  --muted-foreground: rgba(245, 245, 247, 0.62);
-  --accent: var(--mustard-soft);
-  --accent-foreground: #0a0a0b;
+  --muted: #16162A;
+  --muted-foreground: #A0A0B8;
+  --accent: #6B21C8;
+  --accent-foreground: #FFFFFF;
   --destructive: oklch(0.62 0.22 27);
-  --destructive-foreground: #f5f5f7;
+  --destructive-foreground: #FFFFFF;
   --border: rgba(255, 255, 255, 0.08);
   --input: rgba(255, 255, 255, 0.08);
-  --ring: var(--mustard);
+  --ring: #6B21C8;
 }
 
 .dark {
   --background: var(--cream);
   --foreground: var(--ink);
+}
+
+/* Light-section scope: invert tokens for alternating light panels
+   (Services, Portfolio) without changing component markup. */
+.section-light {
+  --cream: #F7F7FA;
+  --cream-warm: #FFFFFF;
+  --ink: #0D0D12;
+  --mustard: #C0186E;
+  --mustard-soft: #6B21C8;
+  --card: #FFFFFF;
+  --border: rgba(13, 13, 18, 0.08);
+  background: #F7F7FA;
+  color: #0D0D12;
+}
+.section-light [class*="border-white/"] {
+  border-color: rgba(13, 13, 18, 0.08) !important;
+}
+.section-light [class*="bg-white/"] {
+  background-color: rgba(13, 13, 18, 0.03) !important;
 }
 
 @layer base {
@@ -101,8 +125,16 @@
     letter-spacing: -0.02em;
   }
   ::selection {
-    background: color-mix(in oklab, var(--mustard) 40%, transparent);
-    color: var(--ink);
+    background: rgba(192, 24, 110, 0.3);
+    color: #FFFFFF;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: #0D0D12; }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #6B21C8, #C0186E);
+    border-radius: 8px;
   }
 }
 
@@ -113,13 +145,37 @@
 }
 
 @utility glass-solid {
-  background: rgba(10, 10, 11, 0.75);
+  background: rgba(13, 13, 18, 0.7);
   backdrop-filter: blur(16px) saturate(140%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 @utility pill-nav {
-  background: rgba(20, 20, 22, 0.7);
+  background: rgba(26, 26, 46, 0.7);
   backdrop-filter: blur(14px) saturate(140%);
   border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Brand gradient utilities */
+@utility bg-gradient-brand {
+  background: linear-gradient(135deg, #6B21C8 0%, #C0186E 45%, #F97316 80%, #F5A623 100%);
+}
+@utility bg-gradient-cta {
+  background: linear-gradient(90deg, #C0186E 0%, #F97316 100%);
+}
+@utility bg-gradient-cta-full {
+  background: linear-gradient(90deg, #6B21C8 0%, #C0186E 50%, #F97316 100%);
+}
+@utility bg-gradient-purple-magenta {
+  background: linear-gradient(90deg, #6B21C8 0%, #C0186E 100%);
+}
+@utility text-gradient-brand {
+  background: linear-gradient(90deg, #6B21C8 0%, #C0186E 50%, #F97316 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@utility hover-brighten {
+  transition: filter 0.3s ease, transform 0.3s ease;
+  &:hover { filter: brightness(1.1); }
 }
