@@ -11,10 +11,10 @@ export function FinalCTA() {
       <div className="mx-auto max-w-5xl px-6">
         <Reveal>
           <div
-            className="relative overflow-hidden rounded-[2rem] border border-white/10 p-10 sm:p-16 text-center"
+            className="relative overflow-hidden rounded-2xl border border-[rgba(107,33,200,0.3)] p-10 sm:p-16 text-center"
             style={{
               background:
-                "radial-gradient(120% 100% at 50% 0%, rgba(107,166,255,0.18) 0%, rgba(23,23,26,1) 60%)",
+                "linear-gradient(135deg, rgba(107,33,200,0.2), rgba(192,24,110,0.1))",
             }}
           >
             <h2 className="font-display text-3xl font-semibold text-white sm:text-5xl">
