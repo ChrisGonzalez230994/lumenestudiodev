@@ -32,7 +32,7 @@ export function FAQ() {
     <section id="faq" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-3xl px-6">
         <Reveal>
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-mustard-soft">
+          <span className="text-gradient-brand text-xs font-semibold uppercase tracking-[0.1em]">
             Preguntas frecuentes
           </span>
           <h2 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">
