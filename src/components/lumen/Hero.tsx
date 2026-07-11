@@ -141,7 +141,7 @@ export function Hero() {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-6 inline-flex items-center gap-2 text-xs font-medium text-ink/60 transition-colors hover:text-mustard-soft"
+          className="mt-6 inline-flex items-center gap-2 text-xs font-medium text-[#C0186E] transition-colors hover:text-[#F97316]"
           variants={{
             hidden: { opacity: 0, y: 16 },
             show: { opacity: 1, y: 0 },
