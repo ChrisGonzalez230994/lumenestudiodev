@@ -20,13 +20,13 @@ const steps = [
 
 export function HowWeWork() {
   return (
-    <section id="proceso" className="relative overflow-hidden py-24 sm:py-32">
+    <section id="proceso" className="relative overflow-hidden bg-[#0D0D12] py-24 sm:py-32">
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <Reveal className="max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-mustard-soft">
+          <span className="text-gradient-brand text-xs font-semibold uppercase tracking-[0.1em]">
             Cómo trabajamos
           </span>
-          <h2 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">
+          <h2 className="mt-3 font-display text-4xl font-semibold text-white sm:text-5xl">
             Un proceso simple, en tres pasos
           </h2>
         </Reveal>
