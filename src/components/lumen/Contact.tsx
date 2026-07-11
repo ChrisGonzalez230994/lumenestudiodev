@@ -48,7 +48,7 @@ export function Contact() {
           >
             <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
               <div>
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-mustard-soft">
+                <span className="text-gradient-brand text-xs font-semibold uppercase tracking-[0.1em]">
                   Contacto
                 </span>
                 <h2 className="mt-3 font-display text-3xl font-semibold leading-[1.1] text-ink sm:text-4xl lg:text-5xl">
