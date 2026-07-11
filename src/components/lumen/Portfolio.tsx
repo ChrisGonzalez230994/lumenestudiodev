@@ -18,13 +18,13 @@ export function Portfolio() {
     >
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-mustard-soft">
+          <span className="text-xs font-semibold uppercase tracking-[0.1em] text-[#6B21C8]">
             Portfolio
           </span>
-          <h2 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">
+          <h2 className="mt-3 font-display text-4xl font-semibold text-[#0D0D12] sm:text-5xl">
             Proyectos recientes
           </h2>
-          <p className="mt-4 text-base text-ink/60">
+          <p className="mt-4 text-base text-[#4A4A6A]">
             Una muestra de trabajos hechos para negocios e instituciones de Mar del Plata
             y el país.
           </p>
