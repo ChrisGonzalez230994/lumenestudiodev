@@ -90,10 +90,6 @@ export function Hero() {
         className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 pt-28 pb-16 text-center"
         initial="hidden"
         animate="show"
-        variants={{
-          hidden: {},
-          show: { transition: { staggerChildren: 0.18, delayChildren: 0.1 } },
-        }}
       >
         <motion.h1
           className="font-display text-5xl font-semibold leading-[1.02] tracking-tight text-ink sm:text-7xl lg:text-[7.5rem]"
@@ -101,7 +97,7 @@ export function Hero() {
             hidden: { opacity: 0, y: 40, filter: "blur(12px)", scale: 0.96 },
             show: { opacity: 1, y: 0, filter: "blur(0px)", scale: 1 },
           }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 1, delay: 0.005, ease: [0.22, 1, 0.36, 1] }}
         >
           Lumen <span className="text-mustard-soft">studio</span>.
         </motion.h1>
@@ -112,7 +108,7 @@ export function Hero() {
             hidden: { opacity: 0, y: 24, filter: "blur(8px)" },
             show: { opacity: 1, y: 0, filter: "blur(0px)" },
           }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.8, delay: 1, ease: [0.22, 1, 0.36, 1] }}
         >
           Desarrollamos soluciones digitales a medida para negocios que quieren
           crecer online.
@@ -124,7 +120,7 @@ export function Hero() {
             hidden: { opacity: 0, y: 20 },
             show: { opacity: 1, y: 0 },
           }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.7, delay: 1, ease: [0.22, 1, 0.36, 1] }}
         >
           <a
             href="#servicios"
@@ -150,12 +146,13 @@ export function Hero() {
             hidden: { opacity: 0, y: 16 },
             show: { opacity: 1, y: 0 },
           }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.6, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
         >
           <MessageCircle className="h-3.5 w-3.5" />
           o escribinos por WhatsApp
         </motion.a>
       </motion.div>
+
     </section>
   );
 }
