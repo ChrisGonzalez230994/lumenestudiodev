@@ -14,7 +14,7 @@ export function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="relative py-24 sm:py-32"
+      className="section-light relative py-24 sm:py-32"
     >
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="max-w-2xl">
