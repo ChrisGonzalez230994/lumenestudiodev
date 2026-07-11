@@ -124,13 +124,13 @@ export function Hero() {
         >
           <a
             href="#servicios"
-            className="group inline-flex min-h-[42px] items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-medium text-ink/85 transition-colors hover:bg-white/5"
+            className="group inline-flex min-h-[44px] items-center gap-1.5 rounded-full bg-gradient-purple-magenta px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:brightness-110"
           >
             Nuestros servicios
           </a>
           <a
             href="#contacto"
-            className="group inline-flex min-h-[42px] items-center gap-1.5 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-cream transition-transform hover:scale-[1.02]"
+            className="group inline-flex min-h-[44px] items-center gap-1.5 rounded-full border-[1.5px] border-[rgba(107,33,200,0.6)] bg-transparent px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[rgba(107,33,200,0.15)]"
           >
             Contactanos
             <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
