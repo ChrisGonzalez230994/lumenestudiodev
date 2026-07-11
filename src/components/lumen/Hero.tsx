@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import smokeVideoMp4 from "@/assets/hero-smoke-autoplay.mp4";
 import smokeVideoWebm from "@/assets/hero-smoke-autoplay.webm";
@@ -85,18 +86,46 @@ export function Hero() {
 
 
 
-      <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 pt-28 pb-16 text-center animate-fade-in">
-
-        <h1 className="font-display text-5xl font-semibold leading-[1.02] tracking-tight text-ink sm:text-7xl lg:text-[7.5rem]">
+      <motion.div
+        className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 pt-28 pb-16 text-center"
+        initial="hidden"
+        animate="show"
+        variants={{
+          hidden: {},
+          show: { transition: { staggerChildren: 0.18, delayChildren: 0.1 } },
+        }}
+      >
+        <motion.h1
+          className="font-display text-5xl font-semibold leading-[1.02] tracking-tight text-ink sm:text-7xl lg:text-[7.5rem]"
+          variants={{
+            hidden: { opacity: 0, y: 40, filter: "blur(12px)", scale: 0.96 },
+            show: { opacity: 1, y: 0, filter: "blur(0px)", scale: 1 },
+          }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        >
           Lumen <span className="text-mustard-soft">studio</span>.
-        </h1>
+        </motion.h1>
 
-        <p className="mt-6 max-w-xl text-base text-ink/70 sm:text-lg">
+        <motion.p
+          className="mt-6 max-w-xl text-base text-ink/70 sm:text-lg"
+          variants={{
+            hidden: { opacity: 0, y: 24, filter: "blur(8px)" },
+            show: { opacity: 1, y: 0, filter: "blur(0px)" },
+          }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
           Desarrollamos soluciones digitales a medida para negocios que quieren
           crecer online.
-        </p>
+        </motion.p>
 
-        <div className="mt-9 flex flex-wrap items-center justify-center gap-2 rounded-full pill-nav p-1.5">
+        <motion.div
+          className="mt-9 flex flex-wrap items-center justify-center gap-2 rounded-full pill-nav p-1.5"
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            show: { opacity: 1, y: 0 },
+          }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
           <a
             href="#servicios"
             className="group inline-flex min-h-[42px] items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-medium text-ink/85 transition-colors hover:bg-white/5"
@@ -110,18 +139,23 @@ export function Hero() {
             Contactanos
             <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
           </a>
-        </div>
+        </motion.div>
 
-        <a
+        <motion.a
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-6 inline-flex items-center gap-2 text-xs font-medium text-ink/60 transition-colors hover:text-mustard-soft"
+          variants={{
+            hidden: { opacity: 0, y: 16 },
+            show: { opacity: 1, y: 0 },
+          }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
           <MessageCircle className="h-3.5 w-3.5" />
           o escribinos por WhatsApp
-        </a>
-      </div>
+        </motion.a>
+      </motion.div>
     </section>
   );
 }

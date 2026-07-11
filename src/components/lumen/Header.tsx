@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
 import logoLumenAsset from "@/assets/logo-lumen.png.asset.json";
 
@@ -22,7 +23,10 @@ export function Header() {
   }, []);
 
   return (
-    <header
+    <motion.header
+      initial={{ y: -24, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled ? "py-3" : "py-5"
       }`}
@@ -108,6 +112,6 @@ export function Header() {
           </nav>
         </div>
       )}
-    </header>
+    </motion.header>
   );
 }
