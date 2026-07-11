@@ -184,7 +184,7 @@ export function Contact() {
                   </p>
                   <button
                     type="submit"
-                    className="mt-1 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-mustard px-6 py-3.5 text-sm font-semibold text-ink shadow-soft transition-transform hover:scale-[1.02]"
+                    className="mt-1 inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-lg bg-gradient-cta-full px-6 py-3.5 text-sm font-semibold text-white shadow-soft transition-all duration-300 hover:scale-[1.02] hover:brightness-110"
                   >
                     Enviar mensaje
                     <Send className="h-4 w-4" />
