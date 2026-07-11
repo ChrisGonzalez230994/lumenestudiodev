@@ -37,7 +37,7 @@ export function Portfolio() {
                 href={c.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block overflow-hidden rounded-3xl border border-white/8 bg-cream-warm transition-all hover:-translate-y-1 hover:border-white/15"
+                className="group block overflow-hidden rounded-2xl border border-[#DEDEE8] bg-white transition-all duration-200 hover:-translate-y-1 hover:border-[#C0186E] hover:shadow-[0_8px_32px_rgba(192,24,110,0.1)]"
               >
 
                 <div className="aspect-[4/3] overflow-hidden">
@@ -51,8 +51,8 @@ export function Portfolio() {
                   />
                 </div>
                 <div className="flex flex-col gap-1.5 p-5">
-                  <h3 className="font-display text-base font-semibold text-ink">{c.name}</h3>
-                  <span className="w-fit rounded-full bg-mustard/15 px-3 py-1 text-xs font-medium text-mustard-soft ring-1 ring-mustard/20">
+                  <h3 className="font-display text-base font-semibold text-[#0D0D12]">{c.name}</h3>
+                  <span className="w-fit rounded-full bg-[#F3EFFE] px-3 py-1 text-xs font-medium text-[#6B21C8]">
                     {c.tag}
                   </span>
                 </div>
