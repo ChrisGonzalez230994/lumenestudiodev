@@ -57,7 +57,7 @@ export function Header() {
 
         <a
           href="#contacto"
-          className="hidden lg:inline-flex items-center gap-1.5 rounded-full pill-nav px-4 py-2 text-sm font-medium text-ink transition-colors hover:bg-white/5"
+          className="hidden lg:inline-flex items-center gap-1.5 rounded-lg bg-gradient-cta px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:brightness-110"
         >
           Empezar proyecto
           <ArrowRight className="h-3.5 w-3.5" />
