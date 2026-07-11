@@ -69,14 +69,14 @@ export function Services() {
           {services.map((s, i) => (
             <Reveal key={s.id} delay={i * 0.06}>
               <article
-                className="group relative h-full overflow-hidden rounded-3xl border border-white/8 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/15"
-                style={{ background: "var(--cream-warm)" }}
+                className="group relative h-full overflow-hidden rounded-2xl border border-[#DEDEE8] bg-white p-7 transition-all duration-200 hover:-translate-y-1 hover:border-[#C0186E] hover:shadow-[0_4px_24px_rgba(192,24,110,0.12)]"
               >
                 <div
-                  className="grid h-12 w-12 place-items-center rounded-2xl bg-mustard/15 text-mustard-soft ring-1 ring-mustard/20"
+                  className="grid h-10 w-10 place-items-center rounded-full text-[#6B21C8]"
+                  style={{ background: "linear-gradient(135deg, #F3EFFE, #FCE8F3)" }}
                   aria-hidden="true"
                 >
-                  <s.icon className="h-6 w-6" />
+                  <s.icon className="h-5 w-5" />
                 </div>
                 <h3 className="mt-6 font-display text-xl font-semibold text-ink">
                   {s.title}
