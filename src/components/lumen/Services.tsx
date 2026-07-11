@@ -50,7 +50,7 @@ export const services = [
 
 export function Services() {
   return (
-    <section id="servicios" className="relative py-24 sm:py-32">
+    <section id="servicios" className="section-light relative py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="max-w-2xl">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-mustard-soft">
