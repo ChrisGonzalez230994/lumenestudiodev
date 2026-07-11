@@ -115,7 +115,7 @@ export function Hero() {
         </motion.p>
 
         <motion.div
-          className="mt-9 flex flex-wrap items-center justify-center gap-2 rounded-full pill-nav p-1.5"
+          className="mt-9 flex flex-wrap items-center justify-center gap-3"
           variants={{
             hidden: { opacity: 0, y: 20 },
             show: { opacity: 1, y: 0 },
