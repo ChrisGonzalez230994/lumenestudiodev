@@ -1,67 +1,38 @@
 import {
   Layout,
   BookOpen,
-  QrCode,
-  Briefcase,
   Building2,
+  Briefcase,
   ShoppingBag,
+  Sparkles,
   ArrowUpRight,
 } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { useI18n } from "@/lib/i18n";
 
 export const services = [
-  {
-    id: "landing-pages",
-    icon: Layout,
-    title: "Landing Pages",
-    desc: "Sitios de una página enfocados en conversión, listos en días.",
-  },
-  {
-    id: "catalogos",
-    icon: BookOpen,
-    title: "Catálogos digitales",
-    desc: "Mostrá tus productos sin checkout completo, con botón directo a WhatsApp.",
-  },
-  {
-    id: "invitaciones-qr",
-    icon: QrCode,
-    title: "Invitaciones & Menú QR",
-    desc: "Para eventos y gastronomía, con QR listo para compartir o imprimir.",
-  },
-  {
-    id: "portfolios",
-    icon: Briefcase,
-    title: "Portfolios digitales",
-    desc: "Para abogados, diseñadores, fotógrafos y consultores que necesitan una vidriera online.",
-  },
-  {
-    id: "institucionales",
-    icon: Building2,
-    title: "Sitios institucionales",
-    desc: "Para ONGs, clubes e iglesias, con secciones de actividades y novedades.",
-  },
-  {
-    id: "ecommerce",
-    icon: ShoppingBag,
-    title: "Asistencia e-commerce",
-    desc: "Te ayudamos a montar tu tienda en Tienda Nube, Shopify u otra plataforma.",
-  },
-];
+  { id: "landing-pages", icon: Layout, titleKey: "services.landing.title", descKey: "services.landing.desc" },
+  { id: "catalogos", icon: BookOpen, titleKey: "services.catalog.title", descKey: "services.catalog.desc" },
+  { id: "institucionales", icon: Building2, titleKey: "services.institutional.title", descKey: "services.institutional.desc" },
+  { id: "portfolios", icon: Briefcase, titleKey: "services.portfolio.title", descKey: "services.portfolio.desc" },
+  { id: "ecommerce", icon: ShoppingBag, titleKey: "services.ecommerce.title", descKey: "services.ecommerce.desc" },
+  { id: "branding", icon: Sparkles, titleKey: "services.branding.title", descKey: "services.branding.desc" },
+] as const;
 
 export function Services() {
+  const { t } = useI18n();
   return (
     <section id="servicios" className="section-light relative py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="max-w-2xl">
           <span className="text-xs font-semibold uppercase tracking-[0.1em] text-[#6B21C8]">
-            Servicios
+            {t("services.label")}
           </span>
           <h2 className="mt-3 font-display text-4xl font-semibold text-[#0D0D12] sm:text-5xl">
-            Seis formas de iluminar tu presencia digital
+            {t("services.title")}
           </h2>
           <p className="mt-4 text-base text-[#4A4A6A] sm:text-lg">
-            Elegí el servicio que mejor encaja con tu momento. Todos pensados para
-            negocios reales que necesitan resultados claros.
+            {t("services.subtitle")}
           </p>
         </Reveal>
 
@@ -79,15 +50,15 @@ export function Services() {
                   <s.icon className="h-5 w-5" />
                 </div>
                 <h3 className="mt-6 font-display text-xl font-semibold text-[#0D0D12]">
-                  {s.title}
+                  {t(s.titleKey)}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-[#4A4A6A]">{s.desc}</p>
+                <p className="mt-2 text-sm leading-relaxed text-[#4A4A6A]">{t(s.descKey)}</p>
                 <a
                   href="#contacto"
                   className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-[#C0186E] transition-colors hover:text-[#F97316]"
-                  aria-label={`Conocer más sobre ${s.title}`}
+                  aria-label={`${t("services.more")} — ${t(s.titleKey)}`}
                 >
-                  Conocer más
+                  {t("services.more")}
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
               </article>

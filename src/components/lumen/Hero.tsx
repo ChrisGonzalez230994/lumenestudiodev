@@ -3,13 +3,15 @@ import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import smokeVideoMp4 from "@/assets/hero-smoke-autoplay.mp4";
 import smokeVideoWebm from "@/assets/hero-smoke-autoplay.webm";
+import { useI18n } from "@/lib/i18n";
 
 const WHATSAPP_URL =
-  "https://wa.me/542236195381?text=" +
+  "https://wa.me/5492236195381?text=" +
   encodeURIComponent("¡Hola Lumen! Quiero más info sobre sus servicios.");
 
 export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const { t } = useI18n();
 
 
   useEffect(() => {
@@ -110,8 +112,7 @@ export function Hero() {
           }}
           transition={{ duration: 0.8, delay: 1, ease: [0.22, 1, 0.36, 1] }}
         >
-          Desarrollamos soluciones digitales a medida para negocios que quieren
-          crecer online.
+          {t("hero.subtitle")}
         </motion.p>
 
         <motion.div
@@ -126,13 +127,13 @@ export function Hero() {
             href="#servicios"
             className="group inline-flex min-h-[44px] items-center gap-1.5 rounded-full bg-gradient-purple-magenta px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:brightness-110"
           >
-            Nuestros servicios
+            {t("hero.primary")}
           </a>
           <a
             href="#contacto"
             className="group inline-flex min-h-[44px] items-center gap-1.5 rounded-full border-[1.5px] border-[rgba(107,33,200,0.6)] bg-transparent px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[rgba(107,33,200,0.15)]"
           >
-            Contactanos
+            {t("hero.secondary")}
             <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
           </a>
         </motion.div>
@@ -149,7 +150,7 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
         >
           <MessageCircle className="h-3.5 w-3.5" />
-          o escribinos por WhatsApp
+          {t("hero.whatsapp")}
         </motion.a>
       </motion.div>
 

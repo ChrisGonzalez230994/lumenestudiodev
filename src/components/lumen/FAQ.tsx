@@ -1,42 +1,29 @@
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 import { Reveal } from "./Reveal";
-
-const faqs = [
-  {
-    q: "¿Cuánto tarda un proyecto?",
-    a: "La mayoría de los proyectos están listos entre 5 y 15 días hábiles, según el servicio y la complejidad. Te damos un plazo concreto en el diagnóstico inicial.",
-  },
-  {
-    q: "¿Qué necesito para empezar?",
-    a: "Sólo una idea clara de lo que querés comunicar. Si tenés logo, textos o fotos, mejor. Si no, te guiamos paso a paso para armar todo.",
-  },
-  {
-    q: "¿Puedo combinar servicios? (ej. landing + catálogo)",
-    a: "Sí. De hecho la mayoría de los clientes combinan dos o tres servicios. Armamos un presupuesto integrado con descuento por combo.",
-  },
-  {
-    q: "¿Trabajan con plataformas gratuitas?",
-    a: "Sí, podemos publicar en Netlify o Vercel sin costo de hosting. También integramos con Tienda Nube, Shopify y otras plataformas según el caso.",
-  },
-  {
-    q: "¿Atienden fuera de Mar del Plata?",
-    a: "Sí, trabajamos con clientes de toda Argentina y Latinoamérica de forma 100% remota.",
-  },
-];
+import { useI18n } from "@/lib/i18n";
 
 export function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
+  const { t } = useI18n();
+
+  const faqs = [
+    { q: t("faq.q1"), a: t("faq.a1") },
+    { q: t("faq.q2"), a: t("faq.a2") },
+    { q: t("faq.q3"), a: t("faq.a3") },
+    { q: t("faq.q4"), a: t("faq.a4") },
+    { q: t("faq.q5"), a: t("faq.a5") },
+  ];
 
   return (
     <section id="faq" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-3xl px-6">
         <Reveal>
           <span className="text-gradient-brand text-xs font-semibold uppercase tracking-[0.1em]">
-            Preguntas frecuentes
+            {t("faq.label")}
           </span>
           <h2 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">
-            Lo que más nos preguntan
+            {t("faq.title")}
           </h2>
         </Reveal>
 
