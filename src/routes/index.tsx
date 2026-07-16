@@ -9,6 +9,8 @@ import { FAQ } from "@/components/lumen/FAQ";
 import { FinalCTA } from "@/components/lumen/FinalCTA";
 import { Contact } from "@/components/lumen/Contact";
 import { Footer } from "@/components/lumen/Footer";
+import { FloatingWhatsApp } from "@/components/lumen/FloatingWhatsApp";
+import { LanguageProvider } from "@/lib/i18n";
 
 const TITLE = "Lumen — Soluciones digitales en Mar del Plata";
 const DESCRIPTION =
