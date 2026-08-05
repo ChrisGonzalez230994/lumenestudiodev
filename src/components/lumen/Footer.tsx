@@ -1,5 +1,5 @@
 import { Instagram, Mail } from "lucide-react";
-import logoLumenAsset from "@/assets/logo-lumen.png.asset.json";
+import logoLumenAsset from "@/assets/logo-lumen.png";
 import { useI18n } from "@/lib/i18n";
 
 export function Footer() {
@@ -18,7 +18,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="flex items-center">
-            <img src={logoLumenAsset.url} alt="Lumen" className="h-8 w-auto" />
+            <img src={logoLumenAsset} alt="Lumen" className="h-8 w-auto" />
           </div>
           <p className="mt-4 text-sm text-ink/60">{t("footer.tagline")}</p>
         </div>
