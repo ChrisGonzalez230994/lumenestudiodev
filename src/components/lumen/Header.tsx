@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
-import logoLumenAsset from "@/assets/logo-lumen.png.asset.json";
+import logoLumenAsset from "@/assets/logo-lumen.png";
 import { useI18n } from "@/lib/i18n";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
@@ -36,7 +36,7 @@ export function Header() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 sm:px-6">
         <a href="#top" className="inline-flex items-center">
-          <img src={logoLumenAsset.url} alt="Lumen" className="h-7 w-auto" />
+          <img src={logoLumenAsset} alt="Lumen" className="h-7 w-auto" />
         </a>
 
         <nav
@@ -79,7 +79,7 @@ export function Header() {
         <div className="fixed inset-0 z-[60] bg-cream/95 backdrop-blur-xl animate-fade-in">
           <div className="flex items-center justify-between px-6 py-5">
             <span className="inline-flex items-center">
-              <img src={logoLumenAsset.url} alt="Lumen" className="h-7 w-auto" />
+              <img src={logoLumenAsset} alt="Lumen" className="h-7 w-auto" />
             </span>
             <div className="flex items-center gap-2">
               <LanguageSwitcher />
