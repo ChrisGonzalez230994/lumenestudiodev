@@ -1,16 +1,16 @@
 import { Reveal } from "./Reveal";
 import { useI18n } from "@/lib/i18n";
-import case1 from "@/assets/case-icb.png.asset.json";
-import case2 from "@/assets/case-stele.png.asset.json";
-import case3 from "@/assets/case-botbol.png.asset.json";
+import case1 from "@/assets/case-icb.png";
+import case2 from "@/assets/case-stele.png";
+import case3 from "@/assets/case-botbol.png";
 
 export function Portfolio() {
   const { t } = useI18n();
 
   const cases = [
-    { img: case1.url, name: "ICB Mar del Plata", tagKey: "works.tag.institutional", href: "https://icbmardelplata.lovable.app", alt: "ICB Mar del Plata" },
-    { img: case2.url, name: "Encuadernación Stele", tagKey: "works.tag.landing", href: "https://encuadernacionstele.lovable.app/", alt: "Encuadernación Stele" },
-    { img: case3.url, name: "Botbol Clothes", tagKey: "works.tag.ecommerce", href: "https://botbolclothes.lovable.app", alt: "Botbol Clothes" },
+    { img: case1, name: "ICB Mar del Plata", tagKey: "works.tag.institutional", href: "https://icbmardelplata.lovable.app", alt: "ICB Mar del Plata" },
+    { img: case2, name: "Encuadernación Stele", tagKey: "works.tag.landing", href: "https://encuadernacionstele.lovable.app/", alt: "Encuadernación Stele" },
+    { img: case3, name: "Botbol Clothes", tagKey: "works.tag.ecommerce", href: "https://botbolclothes.lovable.app", alt: "Botbol Clothes" },
   ];
 
   return (
