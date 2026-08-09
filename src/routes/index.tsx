@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/lumen/Header";
 import { Hero } from "@/components/lumen/Hero";
 import { Services } from "@/components/lumen/Services";
-import { HowWeWork } from "@/components/lumen/HowWeWork";
+import { About } from "@/components/lumen/About";
 
 import { Portfolio } from "@/components/lumen/Portfolio";
 import { FAQ } from "@/components/lumen/FAQ";
@@ -61,10 +61,10 @@ function Index() {
       <main className="min-h-screen overflow-x-hidden bg-background text-foreground">
         <Header />
         <Hero />
+        <About />
         <Services />
-        <HowWeWork />
-
         <Portfolio />
+
         <FAQ />
         <FinalCTA />
         <Contact />

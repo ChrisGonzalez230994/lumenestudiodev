@@ -11,9 +11,10 @@ export function Header() {
   const { t } = useI18n();
 
   const links = [
+    { href: "#nosotros", label: t("nav.about") },
     { href: "#servicios", label: t("nav.services") },
-    { href: "#proceso", label: t("nav.process") },
     { href: "#portfolio", label: t("nav.works") },
+
     { href: "#faq", label: t("nav.faq") },
     { href: "#contacto", label: t("nav.contact") },
   ];
