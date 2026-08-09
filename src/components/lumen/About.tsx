@@ -1,6 +1,7 @@
 import { Reveal } from "./Reveal";
 import { useI18n } from "@/lib/i18n";
 import { Palette, Code2, Target, User } from "lucide-react";
+import christianPhoto from "@/assets/christian.jpg";
 
 const VALUE_ICONS = [Palette, Code2, Target];
 
@@ -53,8 +54,14 @@ export function About() {
               />
               <div className="relative aspect-square rounded-full bg-gradient-to-br from-[#6B21C8] via-[#C0186E] to-[#F5A623] p-[3px]">
                 <div className="grid h-full w-full place-items-center overflow-hidden rounded-full bg-[#1A1A2E]">
-                  {/* Placeholder: replace with <img src={christianPhoto} alt={t("about.photoAlt")} /> */}
-                  <div className="flex flex-col items-center gap-3 px-6 text-center">
+                  <div className="grid h-full w-full place-items-center overflow-hidden rounded-full bg-[#1A1A2E]">
+                    <img
+                        src={christianPhoto}
+                        alt={t("about.photoAlt")}
+                        className="h-full w-full object-cover"
+                     />
+                </div> 
+                 <div className="flex flex-col items-center gap-3 px-6 text-center">
                     <User className="h-10 w-10 text-[#A0A0B8]" aria-hidden="true" />
                     <span className="text-sm text-[#A0A0B8]">{t("about.photoPlaceholder")}</span>
                   </div>
