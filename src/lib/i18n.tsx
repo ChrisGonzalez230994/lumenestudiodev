@@ -14,7 +14,8 @@ const es: Dict = {
   "nav.cta": "Empezar proyecto",
 
   // Hero
-  "hero.subtitle": "Desarrollamos soluciones digitales a medida para negocios que quieren crecer online.",
+  "hero.tagline": "Claridad digital para tu negocio.",
+  "hero.subtitle": "Sitios web, Landing pages y e-Commerce para emprendedores y PyMEs. Nosotros nos ocupamos de la parte digital, para que crecer sea simple para vos.",
   "hero.primary": "Nuestros servicios",
   "hero.secondary": "Contactanos",
   "hero.whatsapp": "o escribinos por WhatsApp",
