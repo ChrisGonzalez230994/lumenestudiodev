@@ -1,6 +1,6 @@
 import { Reveal } from "./Reveal";
 import { useI18n } from "@/lib/i18n";
-import { Palette, Code2, Target, User } from "lucide-react";
+import { Palette, Code2, Target } from "lucide-react";
 import christianPhoto from "@/assets/christian.jpg";
 
 const VALUE_ICONS = [Palette, Code2, Target];
