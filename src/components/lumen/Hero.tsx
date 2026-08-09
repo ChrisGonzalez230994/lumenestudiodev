@@ -101,8 +101,19 @@ export function Hero() {
           }}
           transition={{ duration: 1, delay: 0.005, ease: [0.22, 1, 0.36, 1] }}
         >
-          Lumen <span className="text-mustard-soft">studio</span>.
+          Lumen <span className="text-mustard-soft">Studio</span>
         </motion.h1>
+
+        <motion.h2
+          className="mt-4 font-display text-2xl font-semibold text-ink sm:text-3xl lg:text-4xl"
+          variants={{
+            hidden: { opacity: 0, y: 24, filter: "blur(8px)" },
+            show: { opacity: 1, y: 0, filter: "blur(0px)" },
+          }}
+          transition={{ duration: 0.8, delay: 1, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {t("hero.tagline")}
+        </motion.h2>
 
         <motion.p
           className="mt-6 max-w-xl text-base text-ink/70 sm:text-lg"
