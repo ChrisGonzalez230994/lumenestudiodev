@@ -7,9 +7,11 @@ export function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   const { t } = useI18n();
 
-  const faqs = Array.from({ length: 9 }, (_, i) => ({
-    q: t(`faq.q${i + 1}`),
-    a: t(`faq.a${i + 1}`),
+  const ORDER = [2, 5, 3, 4, 1, 6, 7, 8, 9];
+
+  const faqs = ORDER.map((n) => ({
+    q: t(`faq.q${n}`),
+    a: t(`faq.a${n}`),
   }));
 
   return (
