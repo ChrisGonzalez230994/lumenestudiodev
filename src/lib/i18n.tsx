@@ -73,7 +73,7 @@ const es: Dict = {
   "works.view": "Ver proyecto",
   "works.rv.tag": "Landing page — alquiler temporario",
   "works.rv.desc": "Sitio para alquiler temporario de un departamento en Mar del Plata, con galería de fotos, detalle de espacios y equipamiento, y reserva directa por WhatsApp.",
-  "works.jz.tag": "Sitio institucional",
+  "works.jz.tag": "Landing page",
   "works.jz.desc": "Sitio institucional para un taller de motos, con listado de servicios, marcas atendidas, galería de trabajos realizados y contacto para pedir turno.",
   "works.litz.tag": "Landing page — turnos online",
   "works.litz.desc": "Landing para barbería con servicios, galería de cortes, presentación del equipo, reseñas de clientes y reserva de turnos online.",
