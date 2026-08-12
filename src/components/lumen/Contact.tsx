@@ -64,58 +64,58 @@ export function Contact() {
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex min-h-[44px] items-center gap-4 rounded-2xl bg-card p-4 transition-transform hover:-translate-y-0.5"
+                    className="flex min-h-[44px] items-center gap-4 rounded-2xl border border-[#DDDDE8] bg-white p-4 transition-transform hover:-translate-y-0.5"
                   >
-                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-mustard text-ink">
+                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-[#6B21C8] to-[#C0186E] text-white">
                       <MessageCircle className="h-5 w-5" />
                     </span>
                     <span>
-                      <span className="block text-sm font-semibold text-ink">{t("contact.wa.title")}</span>
-                      <span className="block text-xs text-ink/60">{t("contact.wa.desc")}</span>
+                      <span className="block text-sm font-semibold text-[#0D0D12]">{t("contact.wa.title")}</span>
+                      <span className="block text-xs text-[#4A4A6A]">{t("contact.wa.desc")}</span>
                     </span>
                   </a>
                   <a
                     href="https://instagram.com/lumendev.estudio"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex min-h-[44px] items-center gap-4 rounded-2xl bg-card p-4 transition-transform hover:-translate-y-0.5"
+                    className="flex min-h-[44px] items-center gap-4 rounded-2xl border border-[#DDDDE8] bg-white p-4 transition-transform hover:-translate-y-0.5"
                   >
-                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-mustard text-ink">
+                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-[#6B21C8] to-[#C0186E] text-white">
                       <Instagram className="h-5 w-5" />
                     </span>
                     <span>
-                      <span className="block text-sm font-semibold text-ink">@lumendev.estudio</span>
-                      <span className="block text-xs text-ink/60">{t("contact.ig.desc")}</span>
+                      <span className="block text-sm font-semibold text-[#0D0D12]">@lumendev.estudio</span>
+                      <span className="block text-xs text-[#4A4A6A]">{t("contact.ig.desc")}</span>
                     </span>
                   </a>
                   <a
                     href="mailto:lumendev.estudio@gmail.com"
-                    className="flex min-h-[44px] items-center gap-4 rounded-2xl bg-card p-4 transition-transform hover:-translate-y-0.5"
+                    className="flex min-h-[44px] items-center gap-4 rounded-2xl border border-[#DDDDE8] bg-white p-4 transition-transform hover:-translate-y-0.5"
                   >
-                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-mustard text-ink">
+                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#6B21C8] to-[#C0186E] text-white">
                       <Mail className="h-5 w-5" />
                     </span>
                     <span className="min-w-0 flex-1">
-                      <span className="block truncate text-sm font-semibold text-ink">lumendev.estudio@gmail.com</span>
-                      <span className="block text-xs text-ink/60">{t("contact.mail.desc")}</span>
+                      <span className="block truncate text-sm font-semibold text-[#0D0D12]">lumendev.estudio@gmail.com</span>
+                      <span className="block text-xs text-[#4A4A6A]">{t("contact.mail.desc")}</span>
                     </span>
                   </a>
                 </div>
               </div>
 
               {sent ? (
-                <div className="flex flex-col items-center justify-center gap-3 rounded-3xl bg-card p-10 text-center shadow-soft">
-                  <span className="grid h-14 w-14 place-items-center rounded-full bg-mustard text-ink">
+                <div className="flex flex-col items-center justify-center gap-3 rounded-3xl border border-[#DDDDE8] bg-white p-10 text-center shadow-soft">
+                  <span className="grid h-14 w-14 place-items-center rounded-full bg-gradient-to-br from-[#6B21C8] to-[#C0186E] text-white">
                     <Send className="h-5 w-5" />
                   </span>
-                  <h3 className="font-display text-2xl font-bold text-ink">{t("contact.sent.title")}</h3>
-                  <p className="text-sm text-ink/70">{t("contact.sent.desc")}</p>
+                  <h3 className="font-display text-2xl font-bold text-[#0D0D12]">{t("contact.sent.title")}</h3>
+                  <p className="text-sm text-[#4A4A6A]">{t("contact.sent.desc")}</p>
                 </div>
               ) : (
                 <form
                   onSubmit={onSubmit}
                   noValidate
-                  className="flex flex-col gap-4 rounded-3xl bg-card p-5 shadow-soft sm:p-8"
+                  className="flex flex-col gap-4 rounded-3xl border border-[#DDDDE8] bg-white p-5 shadow-soft sm:p-8"
                 >
                   <Field
                     id="name"
@@ -140,7 +140,7 @@ export function Contact() {
                     onChange={(v) => setForm({ ...form, phone: v })}
                   />
                   <div className="flex flex-col gap-2">
-                    <label htmlFor="service" className="text-sm font-medium text-ink">
+                    <label htmlFor="service" className="text-sm font-medium text-[#0D0D12]">
                       {t("contact.form.service")}
                     </label>
                     <select
@@ -148,7 +148,7 @@ export function Contact() {
                       value={form.service}
                       onChange={(e) => setForm({ ...form, service: e.target.value })}
                       aria-invalid={!!errors.service}
-                      className="rounded-xl border border-border bg-background px-4 py-3 text-base outline-none transition-colors focus:border-mustard focus:ring-2 focus:ring-mustard/30"
+                      className="rounded-xl border border-[#DDDDE8] bg-white px-4 py-3 text-base text-[#0D0D12] placeholder:text-[#A0A0B8] outline-none transition-colors focus:border-mustard focus:ring-2 focus:ring-mustard/30"
                     >
                       <option value="">{t("contact.form.serviceSelect")}</option>
                       {services.map((s) => (
@@ -163,7 +163,7 @@ export function Contact() {
                     )}
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label htmlFor="message" className="text-sm font-medium text-ink">
+                    <label htmlFor="message" className="text-sm font-medium text-[#0D0D12]">
                       {t("contact.form.message")}
                     </label>
                     <textarea
@@ -172,13 +172,13 @@ export function Contact() {
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
                       aria-invalid={!!errors.message}
-                      className="resize-none rounded-xl border border-border bg-background px-4 py-3 text-base outline-none transition-colors focus:border-mustard focus:ring-2 focus:ring-mustard/30"
+                      className="resize-none rounded-xl border border-[#DDDDE8] bg-white px-4 py-3 text-base text-[#0D0D12] placeholder:text-[#A0A0B8] outline-none transition-colors focus:border-mustard focus:ring-2 focus:ring-mustard/30"
                     />
                     {errors.message && (
                       <span className="text-xs text-destructive">{errors.message}</span>
                     )}
                   </div>
-                  <p className="text-xs text-ink/55">{t("contact.form.privacy")}</p>
+                  <p className="text-xs text-[#4A4A6A]">{t("contact.form.privacy")}</p>
                   <button
                     type="submit"
                     className="mt-1 inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-lg bg-gradient-cta-full px-6 py-3.5 text-sm font-semibold text-white shadow-soft transition-all duration-300 hover:scale-[1.02] hover:brightness-110"
@@ -213,7 +213,7 @@ function Field({
 }) {
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor={id} className="text-sm font-medium text-ink">
+      <label htmlFor={id} className="text-sm font-medium text-[#0D0D12]">
         {label}
       </label>
       <input
@@ -222,7 +222,7 @@ function Field({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         aria-invalid={!!error}
-        className="rounded-xl border border-border bg-background px-4 py-3 text-base outline-none transition-colors focus:border-mustard focus:ring-2 focus:ring-mustard/30"
+        className="rounded-xl border border-[#DDDDE8] bg-white px-4 py-3 text-base text-[#0D0D12] placeholder:text-[#A0A0B8] outline-none transition-colors focus:border-mustard focus:ring-2 focus:ring-mustard/30"
       />
       {error && <span className="text-xs text-destructive">{error}</span>}
     </div>
