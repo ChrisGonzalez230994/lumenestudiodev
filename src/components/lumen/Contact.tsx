@@ -41,22 +41,23 @@ export function Contact() {
   };
 
   return (
-    <section id="contacto" className="relative py-24 sm:py-32">
+    <section id="contacto" className="section-light relative py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <Reveal>
           <div
-            className="overflow-hidden rounded-[1.75rem] border border-white/10 p-5 sm:rounded-[2rem] sm:p-10 lg:p-14"
-            style={{ background: "var(--cream-warm)" }}
+            className="overflow-hidden rounded-[1.75rem] border border-[#DDDDE8] p-5 sm:rounded-[2rem] sm:p-10 lg:p-14"
+            style={{ background: "#EDEDF5" }}
           >
             <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
               <div>
                 <span className="text-gradient-brand text-xs font-semibold uppercase tracking-[0.1em]">
                   {t("contact.label")}
                 </span>
-                <h2 className="mt-3 font-display text-3xl font-semibold leading-[1.1] text-ink sm:text-4xl lg:text-5xl">
+                <h2 className="mt-3 font-display text-3xl font-semibold leading-[1.1] text-[#0D0D12] sm:text-4xl lg:text-5xl">
                   {t("contact.title")}
                 </h2>
-                <p className="mt-4 text-base text-ink/65">{t("contact.subtitle")}</p>
+                <p className="mt-4 text-base text-[#4A4A6A]">{t("contact.subtitle")}</p>
+
 
                 <div className="mt-10 space-y-4">
                   <a
