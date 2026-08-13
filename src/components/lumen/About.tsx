@@ -1,14 +1,14 @@
 import { Reveal } from "./Reveal";
 import { useI18n } from "@/lib/i18n";
 import { Palette, Code2, Target } from "lucide-react";
-import christianPhoto from "@/assets/team/christian-gonzalez.jpg.asset.json";
-import ayelenPhoto from "@/assets/team/ayelen-gonzalez.jpg.asset.json";
+import christianPhoto from "@/assets/team/christian-gonzalez.jpg";
+import ayelenPhoto from "@/assets/team/ayelen-gonzalez.jpg";
 
 const VALUE_ICONS = [Palette, Code2, Target];
 
 const TEAM = [
-  { n: 1, name: "Christian González", photo: christianPhoto.url },
-  { n: 2, name: "Ayelén González", photo: ayelenPhoto.url },
+  { n: 1, name: "Christian González", photo: christianPhoto },
+  { n: 2, name: "Ayelén González", photo: ayelenPhoto },
 ];
 
 export function About() {
