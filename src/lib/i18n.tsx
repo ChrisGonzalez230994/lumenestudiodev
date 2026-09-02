@@ -46,7 +46,7 @@ const es: Dict = {
   "team.1.role": "Programador · Analista · Desarrollador Web",
   "team.1.bio": "Desarrollador web con más de 8 años de experiencia en análisis de datos y tecnología. Especializado en soluciones digitales con IA para pymes y emprendedores.",
   "team.1.photoAlt": "Retrato de Christian González",
-  "team.2.role": "Copywriter · Diseñadora",
+  "team.2.role": "DISEÑADORA · COPYWRITER",
   "team.2.bio": "Especialista en identidad visual y comunicación estratégica. Ayuda a marcas a expresar su propuesta de valor con claridad y estilo.",
   "team.2.photoAlt": "Retrato de Ayelén González",
   "about.photoAlt": "Retrato de Christian González, fundador de Lumen Studio",
