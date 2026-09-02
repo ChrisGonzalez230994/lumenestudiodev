@@ -80,7 +80,7 @@ export function About() {
           <div className="mx-auto mt-10 grid gap-6 md:grid-cols-2">
             {TEAM.map((m, i) => (
               <Reveal key={m.name} delay={i * 0.08}>
-                <article className="group mx-auto w-full max-w-[480px] cursor-pointer overflow-hidden rounded-2xl border-[0.5px] border-[#DDDDE8] bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(107,33,200,0.12)]">
+                <article className="group mx-auto w-full max-w-[360px] cursor-pointer overflow-hidden rounded-2xl border-[0.5px] border-[#DDDDE8] bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(107,33,200,0.12)]">
                   <div className="relative aspect-[3/4] overflow-hidden rounded-xl">
                     <img
                       src={m.photo}
