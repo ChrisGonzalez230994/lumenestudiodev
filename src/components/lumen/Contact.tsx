@@ -203,12 +203,18 @@ export function Contact() {
                     )}
                   </div>
                   <p className="text-xs text-[#4A4A6A]">{t("contact.form.privacy")}</p>
+                  {sendError && <p className="text-xs text-destructive">{sendError}</p>}
                   <button
                     type="submit"
-                    className="mt-1 inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-lg bg-gradient-cta-full px-6 py-3.5 text-sm font-semibold text-white shadow-soft transition-all duration-300 hover:scale-[1.02] hover:brightness-110"
+                    disabled={sending}
+                    className="mt-1 inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-lg bg-gradient-cta-full px-6 py-3.5 text-sm font-semibold text-white shadow-soft transition-all duration-300 hover:scale-[1.02] hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {t("contact.form.submit")}
-                    <Send className="h-4 w-4" />
+                    {sending ? (
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                    ) : (
+                      <Send className="h-4 w-4" />
+                    )}
                   </button>
                 </form>
               )}
