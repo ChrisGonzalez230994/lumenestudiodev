@@ -57,15 +57,18 @@ export function Contact() {
     setSending(true);
     setSendError("");
     try {
-      await send({
-        data: {
+      const res = await fetch(contactEndpoint(), {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
           name: form.name.trim(),
           email: form.email.trim(),
           phone: form.phone.trim(),
           service: form.service,
           message: form.message.trim(),
-        },
+        }),
       });
+      if (!res.ok) throw new Error(`Request failed [${res.status}]`);
       setSent(true);
     } catch {
       setSendError(
