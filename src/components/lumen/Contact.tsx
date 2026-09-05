@@ -37,12 +37,30 @@ export function Contact() {
     return e;
   };
 
-  const onSubmit = (ev: React.FormEvent) => {
+  const onSubmit = async (ev: React.FormEvent) => {
     ev.preventDefault();
     const e = validate();
     setErrors(e);
-    if (Object.keys(e).length === 0) {
+    if (Object.keys(e).length > 0) return;
+    setSending(true);
+    setSendError("");
+    try {
+      await send({
+        data: {
+          name: form.name.trim(),
+          email: form.email.trim(),
+          phone: form.phone.trim(),
+          service: form.service,
+          message: form.message.trim(),
+        },
+      });
       setSent(true);
+    } catch {
+      setSendError(
+        "No pudimos enviar tu mensaje. Probá de nuevo o escribinos por WhatsApp.",
+      );
+    } finally {
+      setSending(false);
     }
   };
 
