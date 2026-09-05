@@ -42,15 +42,14 @@ export const Route = createFileRoute("/api/public/contact")({
           return json({ error: "Invalid payload" }, 400);
         }
 
-        const lovableApiKey = process.env["LOVABLE_API_KEY"];
         const resendApiKey = process.env["RESEND_API_KEY"];
-        if (!lovableApiKey || !resendApiKey) {
+        if (!resendApiKey) {
           console.error("Contact endpoint: email service is not configured");
           return json({ error: "Email service is not configured" }, 500);
         }
 
         const html = `
-      <h2>Nuevo mensaje desde lumendev.estudio</h2>
+      <h2>Nuevo mensaje desde lumendevestudio.com</h2>
       <p><strong>Nombre:</strong> ${escapeHtml(parsed.name)}</p>
       <p><strong>Email:</strong> ${escapeHtml(parsed.email)}</p>
       <p><strong>Teléfono:</strong> ${escapeHtml(parsed.phone || "-")}</p>
@@ -59,15 +58,14 @@ export const Route = createFileRoute("/api/public/contact")({
       <p>${escapeHtml(parsed.message).replace(/\n/g, "<br />")}</p>
     `;
 
-        const response = await fetch("https://connector-gateway.lovable.dev/resend/emails", {
+        const response = await fetch("https://api.resend.com/emails", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${lovableApiKey}`,
-            "X-Connection-Api-Key": resendApiKey,
+            Authorization: `Bearer ${resendApiKey}`,
           },
           body: JSON.stringify({
-            from: "Lumen Studio <onboarding@resend.dev>",
+            from: "Lumen Studio <contacto@lumendevestudio.com>",
             to: ["lumendev.estudio@gmail.com"],
             reply_to: parsed.email,
             subject: `Nuevo contacto: ${parsed.name} — ${parsed.service}`,
