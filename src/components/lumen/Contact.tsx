@@ -23,6 +23,10 @@ export function Contact() {
   });
   const [errors, setErrors] = useState<Errors>({});
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState("");
+  const send = useServerFn(sendContactMessage);
+
 
   const validate = (): Errors => {
     const e: Errors = {};
