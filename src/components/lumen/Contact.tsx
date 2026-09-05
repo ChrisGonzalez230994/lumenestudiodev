@@ -4,19 +4,9 @@ import { Reveal } from "./Reveal";
 import { services } from "./Services";
 import { useI18n } from "@/lib/i18n";
 
-// El envío de mails corre en el backend de Lovable (ahí viven las credenciales).
-// Cuando el sitio se sirve desde otro dominio (Vercel), apuntamos a ese backend.
-const CONTACT_API_BASE = "https://lumenestudiodev.lovable.app";
-
-const contactEndpoint = () => {
-  if (typeof window !== "undefined" && window.location.hostname.endsWith("lovable.app")) {
-    return "/api/public/contact";
-  }
-  if (typeof window !== "undefined" && window.location.hostname === "localhost") {
-    return "/api/public/contact";
-  }
-  return `${CONTACT_API_BASE}/api/public/contact`;
-};
+// El envío de mails corre en este mismo proyecto (/api/public/contact),
+// deployado junto con el sitio en Vercel.
+const contactEndpoint = () => "/api/public/contact";
 
 const WHATSAPP_URL =
   "https://wa.me/5492236195381?text=" +
