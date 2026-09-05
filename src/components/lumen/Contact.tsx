@@ -1,10 +1,22 @@
 import { useState } from "react";
 import { MessageCircle, Instagram, Mail, Send, Loader2 } from "lucide-react";
-import { useServerFn } from "@tanstack/react-start";
 import { Reveal } from "./Reveal";
 import { services } from "./Services";
 import { useI18n } from "@/lib/i18n";
-import { sendContactMessage } from "@/lib/contact.functions";
+
+// El envío de mails corre en el backend de Lovable (ahí viven las credenciales).
+// Cuando el sitio se sirve desde otro dominio (Vercel), apuntamos a ese backend.
+const CONTACT_API_BASE = "https://lumenestudiodev.lovable.app";
+
+const contactEndpoint = () => {
+  if (typeof window !== "undefined" && window.location.hostname.endsWith("lovable.app")) {
+    return "/api/public/contact";
+  }
+  if (typeof window !== "undefined" && window.location.hostname === "localhost") {
+    return "/api/public/contact";
+  }
+  return `${CONTACT_API_BASE}/api/public/contact`;
+};
 
 const WHATSAPP_URL =
   "https://wa.me/5492236195381?text=" +
@@ -25,7 +37,7 @@ export function Contact() {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [sendError, setSendError] = useState("");
-  const send = useServerFn(sendContactMessage);
+  
 
 
   const validate = (): Errors => {
@@ -45,15 +57,18 @@ export function Contact() {
     setSending(true);
     setSendError("");
     try {
-      await send({
-        data: {
+      const res = await fetch(contactEndpoint(), {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
           name: form.name.trim(),
           email: form.email.trim(),
           phone: form.phone.trim(),
           service: form.service,
           message: form.message.trim(),
-        },
+        }),
       });
+      if (!res.ok) throw new Error(`Request failed [${res.status}]`);
       setSent(true);
     } catch {
       setSendError(
