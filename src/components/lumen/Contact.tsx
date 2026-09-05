@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { MessageCircle, Instagram, Mail, Send } from "lucide-react";
+import { MessageCircle, Instagram, Mail, Send, Loader2 } from "lucide-react";
+import { useServerFn } from "@tanstack/react-start";
 import { Reveal } from "./Reveal";
 import { services } from "./Services";
 import { useI18n } from "@/lib/i18n";
+import { sendContactMessage } from "@/lib/contact.functions";
 
 const WHATSAPP_URL =
   "https://wa.me/5492236195381?text=" +
