@@ -8,9 +8,9 @@ import caseStele from "@/assets/case-stele.jpg";
 
 const CASES = [
   { key: "rv", img: caseRv, name: "RV Departamento", href: "https://rvdepartamento.vercel.app/" },
-  { key: "jz", img: caseJz, name: "JZ Motomecánica", href: "https://jzmotomecanica.lovable.app/" },
+  { key: "jz", img: caseJz, name: "JZ Motomecánica", href: "https://jzmotomecanica.vercel.app/" },
   { key: "litz", img: caseLitz, name: "Litz Evolution Studio", href: "https://litzstudioevolution.vercel.app/" },
-  { key: "botbol", img: caseBotbol, name: "Botbol Clothes", href: "https://botbolclothes.lovable.app/" },
+  { key: "botbol", img: caseBotbol, name: "Botbol Clothes", href: "https://botbolclothes.vercel.app/" },
   { key: "stele", img: caseStele, name: "Encuadernación Stele", href: "https://encuadernacionstele-5ewz.vercel.app/" },
 ];
 
