@@ -88,6 +88,8 @@ const es: Dict = {
   "works.botbol.desc": "Catálogo y tienda online de indumentaria femenina, con navegación por categorías y compra directa.",
   "works.stele.tag": "Landing page — servicios profesionales",
   "works.stele.desc": "Landing para un estudio de encuadernación fina de protocolos notariales, con estadísticas de trayectoria, proceso de trabajo detallado, galería y testimonios de escribanías clientes.",
+  "works.icb.tag": "Sitio institucional",
+  "works.icb.desc": "Sitio institucional para una iglesia de Mar del Plata, con horarios de reuniones, presentación de la comunidad, devocionales, ubicación y acceso a los servicios en YouTube.",
 
 
   // FAQ
@@ -233,6 +235,8 @@ const en: Dict = {
   "works.botbol.desc": "Catalog and online store for women's clothing, with category navigation and direct checkout.",
   "works.stele.tag": "Landing page — professional services",
   "works.stele.desc": "Landing page for a fine bookbinding studio specialized in notarial protocols, with track-record stats, a detailed process, gallery and testimonials from client notary offices.",
+  "works.icb.tag": "Institutional site",
+  "works.icb.desc": "Institutional site for a church in Mar del Plata, with meeting times, a presentation of the community, devotionals, location and access to services on YouTube.",
 
 
   "faq.label": "Frequently asked questions",
