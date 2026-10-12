@@ -6,6 +6,7 @@ import caseLitz from "@/assets/case-litz.jpg";
 import caseBotbol from "@/assets/case-botbol.jpg";
 import caseStele from "@/assets/case-stele.jpg";
 import caseIcb from "@/assets/case-icb.jpg";
+import caseGaspar from "@/assets/case-gaspar.jpg";
 
 const CASES = [
   { key: "rv", img: caseRv, name: "RV Departamento", href: "https://rvdepartamento.vercel.app/" },
@@ -14,6 +15,7 @@ const CASES = [
   { key: "botbol", img: caseBotbol, name: "Botbol Clothes", href: "https://botbolclothes.vercel.app/" },
   { key: "stele", img: caseStele, name: "Encuadernación Stele", href: "https://encuadernacionstele-5ewz.vercel.app/" },
   { key: "icb", img: caseIcb, name: "ICB Mar del Plata", href: "https://icbmardelplata.vercel.app/" },
+  { key: "gaspar", img: caseGaspar, name: "DimeloGasp", href: "https://gasparporfoliodigital.vercel.app/" },
 ];
 
 export function Portfolio() {

@@ -90,6 +90,8 @@ const es: Dict = {
   "works.stele.desc": "Landing para un estudio de encuadernación fina de protocolos notariales, con estadísticas de trayectoria, proceso de trabajo detallado, galería y testimonios de escribanías clientes.",
   "works.icb.tag": "Sitio institucional",
   "works.icb.desc": "Sitio institucional para una iglesia de Mar del Plata, con horarios de reuniones, presentación de la comunidad, devocionales, ubicación y acceso a los servicios en YouTube.",
+  "works.gaspar.tag": "Portfolio digital",
+  "works.gaspar.desc": "Portfolio digital para un productor musical de Mar del Plata, con su música, servicios de producción y Auto-Tune en vivo, galería de fotos y contacto directo.",
 
 
   // FAQ
@@ -237,6 +239,8 @@ const en: Dict = {
   "works.stele.desc": "Landing page for a fine bookbinding studio specialized in notarial protocols, with track-record stats, a detailed process, gallery and testimonials from client notary offices.",
   "works.icb.tag": "Institutional site",
   "works.icb.desc": "Institutional site for a church in Mar del Plata, with meeting times, a presentation of the community, devotionals, location and access to services on YouTube.",
+  "works.gaspar.tag": "Digital portfolio",
+  "works.gaspar.desc": "Digital portfolio for a music producer in Mar del Plata, with his music, production and live Auto-Tune services, a photo gallery and direct contact.",
 
 
   "faq.label": "Frequently asked questions",
