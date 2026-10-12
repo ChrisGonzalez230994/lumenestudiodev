@@ -6,6 +6,7 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
@@ -34,7 +35,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -77,18 +78,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lumen Studio Showcase is a modern, premium React landing page for a digital studio." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lumen Studio Showcase is a modern, premium React landing page for a digital studio." },
+      { title: "Lumen — Soluciones digitales en Mar del Plata" },
+      { name: "description", content: "Estudio digital en Mar del Plata: landing pages, catálogos, invitaciones y menús QR, portfolios, sitios institucionales y e-commerce." },
+      { name: "author", content: "Lumen Studio" },
+      { property: "og:title", content: "Lumen — Soluciones digitales en Mar del Plata" },
+      { property: "og:description", content: "Estudio digital en Mar del Plata: landing pages, catálogos, invitaciones y menús QR, portfolios, sitios institucionales y e-commerce." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "Lumen Studio Showcase is a modern, premium React landing page for a digital studio." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/GuzvUYdj3Rc5hTpjV0S9uJ4f79x1/social-images/social-1783477611470-ChatGPT_Image_7_jul_2026,_23_26_24.webp" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/GuzvUYdj3Rc5hTpjV0S9uJ4f79x1/social-images/social-1783477611470-ChatGPT_Image_7_jul_2026,_23_26_24.webp" },
+      { name: "twitter:title", content: "Lumen — Soluciones digitales en Mar del Plata" },
+      { name: "twitter:description", content: "Estudio digital en Mar del Plata: landing pages, catálogos, invitaciones y menús QR, portfolios, sitios institucionales y e-commerce." },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
