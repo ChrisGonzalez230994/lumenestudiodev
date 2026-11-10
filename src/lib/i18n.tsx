@@ -92,6 +92,8 @@ const es: Dict = {
   "works.icb.desc": "Sitio institucional para una iglesia de Mar del Plata, con horarios de reuniones, presentación de la comunidad, devocionales, ubicación y acceso a los servicios en YouTube.",
   "works.gaspar.tag": "Portfolio digital",
   "works.gaspar.desc": "Portfolio digital para un productor musical de Mar del Plata, con su música, servicios de producción y Auto-Tune en vivo, galería de fotos y contacto directo.",
+  "works.candela.tag": "Landing page — estudio jurídico",
+  "works.candela.desc": "Landing para una abogada penalista, con áreas de práctica, guardia de urgencias 24 hs, proceso de trabajo, preguntas frecuentes, versión en inglés y formulario de consulta directo a WhatsApp.",
 
 
   // FAQ
@@ -241,6 +243,8 @@ const en: Dict = {
   "works.icb.desc": "Institutional site for a church in Mar del Plata, with meeting times, a presentation of the community, devotionals, location and access to services on YouTube.",
   "works.gaspar.tag": "Digital portfolio",
   "works.gaspar.desc": "Digital portfolio for a music producer in Mar del Plata, with his music, production and live Auto-Tune services, a photo gallery and direct contact.",
+  "works.candela.tag": "Landing page — law practice",
+  "works.candela.desc": "Landing page for a criminal defense lawyer, with practice areas, 24/7 emergency line, work process, FAQ, an English version and a consultation form that goes straight to WhatsApp.",
 
 
   "faq.label": "Frequently asked questions",
