@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import { Reveal } from "./Reveal";
 import { useI18n } from "@/lib/i18n";
 import caseRv from "@/assets/case-rv.jpg";
@@ -9,19 +10,37 @@ import caseIcb from "@/assets/case-icb.jpg";
 import caseGaspar from "@/assets/case-gaspar.jpg";
 import caseCandela from "@/assets/case-candela.jpg";
 
-const CASES = [
+type Case = { key: string; img: string; name: string; href: string };
+
+// Visible by default.
+const FEATURED: Case[] = [
+  { key: "candela", img: caseCandela, name: "Candela Chandía", href: "https://candelachandia.com.ar/" },
+  { key: "gaspar", img: caseGaspar, name: "DimeloGasp", href: "https://gasparporfoliodigital.vercel.app/" },
+  { key: "litz", img: caseLitz, name: "Litz Evolution Studio", href: "https://litzstudioevolution.vercel.app/" },
+];
+
+// Shown after clicking "Ver más".
+const MORE: Case[] = [
   { key: "rv", img: caseRv, name: "RV Departamento", href: "https://rvdepartamento.vercel.app/" },
   { key: "jz", img: caseJz, name: "JZ Motomecánica", href: "https://jzmotomecanica.vercel.app/" },
-  { key: "litz", img: caseLitz, name: "Litz Evolution Studio", href: "https://litzstudioevolution.vercel.app/" },
   { key: "botbol", img: caseBotbol, name: "Botbol Clothes", href: "https://botbolclothes.vercel.app/" },
   { key: "stele", img: caseStele, name: "Encuadernación Stele", href: "https://encuadernacionstele-5ewz.vercel.app/" },
   { key: "icb", img: caseIcb, name: "ICB Mar del Plata", href: "https://icbmardelplata.vercel.app/" },
-  { key: "gaspar", img: caseGaspar, name: "DimeloGasp", href: "https://gasparporfoliodigital.vercel.app/" },
-  { key: "candela", img: caseCandela, name: "Candela Chandía", href: "https://candelachandia.com.ar/" },
 ];
 
 export function Portfolio() {
   const { t } = useI18n();
+  const [expanded, setExpanded] = useState(false);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const visible = expanded ? [...FEATURED, ...MORE] : FEATURED;
+
+  const toggle = () => {
+    if (expanded) {
+      // Bring the grid back into view so collapsing doesn't leave the user lost further down.
+      gridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    setExpanded((v) => !v);
+  };
 
   return (
     <section id="portfolio" className="section-light relative py-24 sm:py-32">
@@ -36,9 +55,13 @@ export function Portfolio() {
           <p className="mt-4 text-base text-[#4A4A6A]">{t("works.subtitle")}</p>
         </Reveal>
 
-        <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {CASES.map((c, i) => (
-            <Reveal key={c.key} delay={i * 0.06}>
+        <div
+          id="portfolio-grid"
+          ref={gridRef}
+          className="mt-14 grid scroll-mt-28 gap-4 md:grid-cols-2 lg:grid-cols-3"
+        >
+          {visible.map((c, i) => (
+            <Reveal key={c.key} delay={(i < FEATURED.length ? i : i - FEATURED.length) * 0.06}>
               <a
                 href={c.href}
                 target="_blank"
@@ -70,6 +93,24 @@ export function Portfolio() {
               </a>
             </Reveal>
           ))}
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <button
+            type="button"
+            onClick={toggle}
+            aria-expanded={expanded}
+            aria-controls="portfolio-grid"
+            className="group inline-flex min-h-[44px] items-center gap-2 rounded-full border-[1.5px] border-[#C0186E] bg-white px-6 py-2.5 text-sm font-semibold text-[#C0186E] transition-colors hover:bg-[#C0186E] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C0186E] focus-visible:ring-offset-2"
+          >
+            {expanded ? t("works.less") : t("works.more")}
+            <span
+              aria-hidden="true"
+              className={`transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
+            >
+              ↓
+            </span>
+          </button>
         </div>
       </div>
     </section>
