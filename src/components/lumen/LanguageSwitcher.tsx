@@ -1,6 +1,6 @@
 import { useI18n, type Lang } from "@/lib/i18n";
 
-export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
+export function LanguageSwitcher() {
   const { lang, setLang } = useI18n();
 
   const btn = (l: Lang, label: string) => (
@@ -9,10 +9,8 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
       type="button"
       onClick={() => setLang(l)}
       aria-pressed={lang === l}
-      className={`rounded-full px-2.5 py-1 text-xs font-semibold uppercase tracking-wider transition-colors ${
-        lang === l
-          ? "bg-gradient-cta text-white"
-          : "text-white/70 hover:text-white"
+      className={`rounded-full px-2.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-wider transition-colors ${
+        lang === l ? "bg-[#1A1A1A] text-white" : "text-gray-500 hover:text-black"
       }`}
     >
       {label}
@@ -21,11 +19,9 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
 
   return (
     <div
-      className={`inline-flex items-center gap-0.5 rounded-full border border-white/10 bg-white/5 p-0.5 backdrop-blur ${
-        compact ? "" : ""
-      }`}
+      className="inline-flex items-center gap-0.5 rounded-full border border-black/10 bg-white p-0.5"
       role="group"
-      aria-label="Language"
+      aria-label="Idioma / Language"
     >
       {btn("es", "ES")}
       {btn("en", "EN")}

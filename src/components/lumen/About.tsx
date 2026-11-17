@@ -1,165 +1,138 @@
+import { Palette, Code2, Target, Linkedin, BriefcaseBusiness, ArrowUpRight } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { TiltCard } from "./TiltCard";
 import { useI18n } from "@/lib/i18n";
-import { Palette, Code2, Target } from "lucide-react";
 import christianPhoto from "@/assets/team/christian-gonzalez.jpg";
 import ayelenPhoto from "@/assets/team/ayelen-gonzalez.jpg";
 
-const VALUE_ICONS = [Palette, Code2, Target];
+const VALUES = [
+  { Icon: Palette, color: "#6B21C8" },
+  { Icon: Code2, color: "#C0186E" },
+  { Icon: Target, color: "#F97316" },
+];
 
-const TEAM = [
-  { n: 1, name: "Christian González", photo: christianPhoto },
-  { n: 2, name: "Ayelén González", photo: ayelenPhoto },
+type Link = { kind: "linkedin" | "portfolio"; href: string };
+
+const TEAM: { n: number; name: string; photo: string; links: Link[] }[] = [
+  {
+    n: 1,
+    name: "Christian González",
+    photo: christianPhoto,
+    links: [
+      { kind: "linkedin", href: "https://www.linkedin.com/in/chris-gonzalez-alejandro/" },
+      { kind: "portfolio", href: "https://portfolio-christian-gonzalez.vercel.app/" },
+    ],
+  },
+  {
+    n: 2,
+    name: "Ayelén González",
+    photo: ayelenPhoto,
+    links: [{ kind: "linkedin", href: "https://www.linkedin.com/in/ayelengonz%C3%A1lez/" }],
+  },
 ];
 
 export function About() {
   const { t } = useI18n();
 
-  const values = [1, 2, 3].map((n, i) => ({
-    Icon: VALUE_ICONS[i],
-    title: t(`about.value.${n}.title`),
-    desc: t(`about.value.${n}.desc`),
-  }));
-
-  const steps = [1, 2, 3, 4].map((n) => ({
-    n: `0${n}`,
-    title: t(`about.how.${n}.title`),
-    desc: t(`about.how.${n}.desc`),
-  }));
-
   return (
-    <section id="nosotros" className="relative overflow-hidden bg-[#F7F7FA] py-24 sm:py-32">
-      <div className="relative z-10 mx-auto max-w-7xl px-6">
-        {/* BLOCK 1 — statement */}
-        <Reveal className="max-w-3xl">
-          <span className="text-xs font-semibold uppercase tracking-[0.1em] text-[#6B21C8]">
-            {t("about.label")}
-          </span>
-          <h2 className="mt-4 font-display text-4xl font-semibold leading-[1.1] text-[#0D0D12] sm:text-5xl lg:text-[3.4rem]">
-            {t("about.statement")}
-          </h2>
-          <div className="mt-8 h-px w-32 bg-gradient-to-r from-[#6B21C8] via-[#C0186E] to-[#F5A623]" />
-        </Reveal>
-
-        {/* BLOCK 2 — bio */}
-        <Reveal className="mt-14 max-w-4xl">
-          <p className="text-lg leading-relaxed text-[#4A4A6A] sm:text-xl">{t("about.bio")}</p>
-        </Reveal>
-
-        {/* BLOCK 3 — value proposition */}
-        <div className="mt-24">
-          <Reveal className="max-w-2xl">
-            <h3 className="font-display text-3xl font-semibold text-[#0D0D12] sm:text-4xl">
-              {t("about.value.title")}
-            </h3>
-            <p className="mt-4 text-base text-[#4A4A6A]">{t("about.value.intro")}</p>
-          </Reveal>
-
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
-            {values.map((v, i) => (
-              <Reveal key={v.title} delay={i * 0.08}>
-                <div className="group h-full rounded-2xl border border-[#DEDEE8] bg-white p-7 transition-all duration-200 hover:-translate-y-1 hover:border-[#C0186E]/60">
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-[#6B21C8] to-[#C0186E]">
-                    <v.Icon className="h-5 w-5 text-white" aria-hidden="true" />
-                  </span>
-                  <h4 className="mt-5 font-display text-xl font-semibold text-[#0D0D12]">{v.title}</h4>
-                  <p className="mt-2 text-sm text-[#4A4A6A]">{v.desc}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-
-        {/* BLOCK 3.5 — team */}
-        <div className="mt-24">
+    <section id="nosotros" className="relative overflow-hidden py-24 sm:py-32">
+      <div
+        aria-hidden="true"
+        className="stripe-gradient pointer-events-none absolute -left-40 top-24 -z-10 h-96 w-96 rounded-full opacity-[0.12] blur-[80px]"
+      />
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
           <Reveal>
-            <span className="text-xs font-semibold uppercase tracking-[0.12em] text-[#6B21C8]">
-              {t("team.label")}
+            <span className="font-mono text-xs uppercase tracking-[0.16em] text-[#C0186E]">
+              {t("about.label")}
             </span>
+            <h2 className="mt-4 text-4xl font-semibold leading-[1.05] text-[#1A1A1A] sm:text-6xl">
+              {t("about.statement")}
+            </h2>
           </Reveal>
-
-          <div className="mx-auto mt-10 grid gap-6 md:grid-cols-2">
-            {TEAM.map((m, i) => (
-              <Reveal key={m.name} delay={i * 0.08}>
-                <article className="group mx-auto w-full max-w-[360px] cursor-pointer overflow-hidden rounded-2xl border-[0.5px] border-[#DDDDE8] bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(107,33,200,0.12)]">
-                  <div className="relative aspect-[3/4] overflow-hidden rounded-xl">
-                    <img
-                      src={m.photo}
-                      alt={t(`team.${m.n}.photoAlt`)}
-                      loading="lazy"
-                      className="block h-full w-full object-cover object-top [filter:grayscale(100%)_contrast(1.1)] transition-[filter,transform] duration-500 ease-out group-hover:[filter:grayscale(0%)_contrast(1)] group-hover:scale-[1.04]"
-                    />
-                    <div
-                      aria-hidden="true"
-                      className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgba(13,13,18,0.35)] to-transparent opacity-100 transition-opacity duration-[400ms] ease-out group-hover:opacity-0"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h4 className="font-display text-[17px] font-bold text-[#0D0D12]">{m.name}</h4>
-                    <p className="mt-1 text-[13px] uppercase tracking-[0.06em] text-[#6B21C8]">
-                      {t(`team.${m.n}.role`)}
-                    </p>
-                    <p className="mt-2 text-[13px] leading-[1.6] text-[#4A4A6A]">
-                      {t(`team.${m.n}.bio`)}
-                    </p>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-
-        {/* BLOCK 4 — how we work */}
-        <div className="mt-24">
-          <Reveal className="max-w-2xl">
-            <h3 className="font-display text-3xl font-semibold text-[#0D0D12] sm:text-4xl">
-              {t("about.how.title")}
-            </h3>
-          </Reveal>
-
-          <div className="relative mt-14">
-            <div aria-hidden="true" className="absolute left-0 right-0 top-6 hidden md:block">
-              <div className="mx-auto h-px w-full max-w-[85%] bg-gradient-to-r from-[#6B21C8] via-[#C0186E] to-[#F5A623] opacity-40" />
-            </div>
-
-            <ol className="grid gap-10 md:grid-cols-4 md:gap-6">
-              {steps.map((s, i) => (
-                <Reveal key={s.n} delay={i * 0.08}>
-                  <li className="relative flex flex-col items-start md:items-center md:text-center">
-                    <span className="relative z-10 grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-[#6B21C8] to-[#C0186E] font-display text-lg font-bold text-white ring-8 ring-[#F7F7FA]">
-                      {s.n}
-                    </span>
-                    <h4 className="mt-6 font-display text-xl font-semibold text-[#0D0D12]">{s.title}</h4>
-                    <p className="mt-2 max-w-xs text-sm text-[#4A4A6A]">{s.desc}</p>
-                  </li>
-                </Reveal>
+          <Reveal delay={0.08} className="lg:pt-10">
+            <p className="text-lg leading-relaxed text-[#5E5E6E]">{t("about.bio")}</p>
+            <ul className="mt-8 grid gap-3 sm:grid-cols-3">
+              {VALUES.map(({ Icon, color }, i) => (
+                <li key={i} className="rounded-2xl border border-black/[0.07] bg-white p-4">
+                  <Icon className="h-5 w-5" style={{ color }} aria-hidden="true" />
+                  <p className="mt-3 text-sm font-semibold text-[#1A1A1A]">
+                    {t(`about.value.${i + 1}.title`)}
+                  </p>
+                  <p className="mt-0.5 text-[13px] leading-snug text-[#5E5E6E]">
+                    {t(`about.value.${i + 1}.desc`)}
+                  </p>
+                </li>
               ))}
-            </ol>
-          </div>
+            </ul>
+          </Reveal>
         </div>
 
-        {/* CTA */}
         <Reveal className="mt-24">
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#1A1A2E] px-8 py-12 text-center sm:px-14 sm:py-16">
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-x-0 -top-24 mx-auto h-64 w-64 rounded-full bg-[#6B21C8] opacity-30 blur-[90px]"
-            />
-            <div className="relative">
-              <h3 className="font-display text-3xl font-semibold text-white sm:text-4xl">
-                {t("about.cta.title")}
-              </h3>
-              <p className="mx-auto mt-4 max-w-xl text-base text-[#A0A0B8]">
-                {t("about.cta.subtitle")}
-              </p>
-              <a
-                href="#contacto"
-                className="mt-8 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#6B21C8] via-[#C0186E] to-[#F97316] px-7 py-3.5 text-sm font-semibold text-white transition-transform duration-200 hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5A623] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1A1A2E]"
-              >
-                {t("about.cta.button")}
-              </a>
-            </div>
-          </div>
+          <span className="font-mono text-xs uppercase tracking-[0.16em] text-gray-400">
+            {t("team.label")}
+          </span>
         </Reveal>
+
+        <div className="mt-6 grid gap-5 md:grid-cols-2">
+          {TEAM.map((m, i) => (
+            <Reveal key={m.name} delay={i * 0.08}>
+              <TiltCard
+                as="article"
+                className="group h-full overflow-hidden rounded-3xl border border-black/[0.07] bg-white hover:border-black/15 hover:shadow-[0_24px_60px_-28px_rgba(107,33,200,0.35)]"
+                innerClassName="grid h-full gap-0 sm:grid-cols-[0.9fr_1.1fr]"
+              >
+                <div className="relative aspect-[4/5] overflow-hidden sm:aspect-auto sm:h-full">
+                  <img
+                    src={m.photo}
+                    alt={t(`team.${m.n}.photoAlt`)}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover object-top [filter:grayscale(100%)_contrast(1.05)] transition-[filter,transform] duration-500 ease-out group-hover:scale-[1.03] group-hover:[filter:grayscale(0%)]"
+                  />
+                </div>
+                <div className="flex flex-col p-7">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-[#6B21C8]">
+                    {t(`team.${m.n}.role`)}
+                  </span>
+                  <h3 className="mt-3 text-2xl font-semibold text-[#1A1A1A]">{m.name}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-[#5E5E6E]">
+                    {t(`team.${m.n}.bio`)}
+                  </p>
+                  <div className="mt-auto flex flex-wrap gap-2 pt-7">
+                    {m.links.map((l) =>
+                      l.kind === "linkedin" ? (
+                        <a
+                          key={l.href}
+                          href={l.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`LinkedIn de ${m.name}`}
+                          className="magnetic inline-flex min-h-[44px] items-center gap-2 rounded-full bg-[#1A1A1A] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#6B21C8]"
+                        >
+                          <Linkedin className="h-4 w-4" aria-hidden="true" />
+                          {t("team.linkedin")}
+                        </a>
+                      ) : (
+                        <a
+                          key={l.href}
+                          href={l.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`Portfolio de ${m.name}`}
+                          className="magnetic inline-flex min-h-[44px] items-center gap-2 rounded-full border border-black/15 bg-white px-4 py-2.5 text-sm font-semibold text-[#1A1A1A] transition-colors hover:border-black/40"
+                        >
+                          <BriefcaseBusiness className="h-4 w-4" aria-hidden="true" />
+                          {t("team.portfolio")}
+                          <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                        </a>
+                      ),
+                    )}
+                  </div>
+                </div>
+              </TiltCard>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );

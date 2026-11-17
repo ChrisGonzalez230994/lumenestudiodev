@@ -3,6 +3,9 @@ import { Header } from "@/components/lumen/Header";
 import { Hero } from "@/components/lumen/Hero";
 import { Services } from "@/components/lumen/Services";
 import { About } from "@/components/lumen/About";
+import { Included } from "@/components/lumen/Included";
+import { Process } from "@/components/lumen/Process";
+import { Effects } from "@/components/lumen/Effects";
 
 import { Portfolio } from "@/components/lumen/Portfolio";
 import { FAQ } from "@/components/lumen/FAQ";
@@ -14,7 +17,7 @@ import { LanguageProvider } from "@/lib/i18n";
 
 const TITLE = "Lumen — Soluciones digitales en Mar del Plata";
 const DESCRIPTION =
-  "Estudio digital en Mar del Plata: landing pages, catálogos, invitaciones y menús QR, portfolios, sitios institucionales y e-commerce. Listos en días.";
+  "Estudio digital en Mar del Plata: landing pages, portfolios, catálogos con pedidos por WhatsApp, sitios institucionales y e-commerce. Precios claros y entrega en días.";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -58,13 +61,15 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <LanguageProvider>
-      <main className="min-h-screen overflow-x-hidden bg-background text-foreground">
+      <main className="lumen-v2 relative isolate min-h-screen overflow-x-clip">
+        <Effects />
         <Header />
         <Hero />
-        <About />
+        <Included />
         <Services />
+        <Process />
         <Portfolio />
-
+        <About />
         <FAQ />
         <FinalCTA />
         <Contact />

@@ -9,43 +9,45 @@ const WHATSAPP_URL =
 export function FinalCTA() {
   const { t } = useI18n();
   return (
-    <section className="relative py-20 sm:py-28">
-      <div className="mx-auto max-w-5xl px-6">
-        <Reveal>
+    <section className="relative px-5 py-12 sm:px-8 sm:py-16">
+      <Reveal className="mx-auto max-w-7xl">
+        <div className="relative overflow-hidden rounded-[2rem] bg-[#14141C] px-8 py-16 text-center sm:px-16 sm:py-24">
           <div
-            className="relative overflow-hidden rounded-2xl border border-[rgba(107,33,200,0.3)] p-10 sm:p-16 text-center"
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(107,33,200,0.2), rgba(192,24,110,0.1))",
-            }}
-          >
-            <h2 className="font-display text-3xl font-semibold text-white sm:text-5xl">
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-24 -top-32 h-96 w-96 rounded-full bg-[#6B21C8] opacity-60 blur-[90px]"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -bottom-40 -left-24 h-80 w-80 rounded-full bg-[#C0186E] opacity-50 blur-[90px]"
+          />
+          <div className="relative">
+            <h2 className="mx-auto max-w-3xl text-4xl font-semibold leading-[1.02] text-white sm:text-6xl">
               {t("cta.title")}
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-base text-[#A0A0B8]">
+            <p className="mx-auto mt-5 max-w-xl text-base text-white/65 sm:text-lg">
               {t("cta.subtitle")}
             </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-gradient-cta px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:brightness-110 hover:scale-[1.02]"
+                className="magnetic inline-flex min-h-[48px] items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#1A1A1A] transition-colors hover:bg-white/90"
               >
-                <MessageCircle className="h-4 w-4" />
+                <MessageCircle className="h-4 w-4" aria-hidden="true" />
                 {t("cta.whatsapp")}
               </a>
               <a
                 href="#contacto"
-                className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-white/20 bg-transparent px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/5"
+                className="magnetic inline-flex min-h-[48px] items-center gap-2 rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-white/60"
               >
                 {t("cta.write")}
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
             </div>
           </div>
-        </Reveal>
-      </div>
+        </div>
+      </Reveal>
     </section>
   );
 }

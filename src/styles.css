@@ -179,3 +179,114 @@
   transition: filter 0.3s ease, transform 0.3s ease;
   &:hover { filter: brightness(1.1); }
 }
+
+/* ==========================================================================
+   Lumen v2 — light redesign (scoped to the home page wrapper `.lumen-v2`)
+   Brand: purple #6B21C8 · magenta #C0186E · orange #F97316 · amber #F5A623
+   ========================================================================== */
+html.lumen-v2-root {
+  color-scheme: light;
+  scroll-behavior: auto; /* smooth scrolling is handled in JS */
+  background: #FAFAFA;
+}
+html.lumen-v2-root ::-webkit-scrollbar-track { background: #FAFAFA; }
+
+.lumen-v2 {
+  --v2-bg: #FAFAFA;
+  --v2-ink: #1A1A1A;
+  --v2-muted: #5E5E6E;
+  --v2-line: #E6E6EC;
+  --v2-purple: #6B21C8;
+  --v2-magenta: #C0186E;
+  --v2-orange: #F97316;
+  --v2-amber: #F5A623;
+  background: var(--v2-bg);
+  color: var(--v2-ink);
+  font-family: "Manrope", system-ui, sans-serif;
+  color-scheme: light;
+}
+.lumen-v2 h1, .lumen-v2 h2, .lumen-v2 h3, .lumen-v2 h4 {
+  font-family: "Manrope", system-ui, sans-serif;
+  letter-spacing: -0.035em;
+}
+.lumen-v2 ::selection { background: rgba(192, 24, 110, 0.2); color: #000; }
+.lumen-v2 .font-mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+/* Fixed 6rem grid that covers the whole site */
+.bg-grid-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(26, 26, 26, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(26, 26, 26, 0.045) 1px, transparent 1px);
+  background-size: 6rem 6rem;
+}
+
+/* Animated brand gradient used for blobs and accents */
+.stripe-gradient {
+  background: linear-gradient(120deg, #6B21C8, #C0186E, #F97316, #F5A623, #C0186E, #6B21C8);
+  background-size: 300% 300%;
+  animation: v2-stripe 14s ease infinite;
+}
+@keyframes v2-stripe {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.text-stripe {
+  background: linear-gradient(120deg, #6B21C8, #C0186E, #F97316);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Infinite marquee (30s) */
+.v2-marquee { display: flex; width: max-content; animation: v2-marquee 30s linear infinite; }
+.v2-marquee:hover { animation-play-state: paused; }
+@keyframes v2-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* Pulse rings for the "Diseño a medida" bento card */
+@keyframes v2-pulse {
+  0% { transform: scale(0.6); opacity: 0.55; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+.v2-pulse-ring { animation: v2-pulse 3.6s cubic-bezier(0.22, 1, 0.36, 1) infinite; }
+
+/* Bento cards: 3D tilt + inner parallax layer */
+.bento-card {
+  transform-style: preserve-3d;
+  transition: transform 0.25s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+  will-change: transform;
+}
+.bento-card .bento-inner { transform: translateZ(30px); transform-style: preserve-3d; }
+
+/* Custom cursor (only >= 1024px with a fine pointer) */
+.cursor-dot, .cursor-outline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  border-radius: 9999px;
+  opacity: 0;
+  transition: opacity 0.2s ease, width 0.25s ease, height 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+}
+.cursor-dot { width: 6px; height: 6px; background: #C0186E; }
+.cursor-outline { width: 40px; height: 40px; border: 1.5px solid rgba(107, 33, 200, 0.55); }
+.cursor-outline.is-hover { width: 64px; height: 64px; background: rgba(192, 24, 110, 0.08); border-color: rgba(192, 24, 110, 0.6); }
+html.has-custom-cursor, html.has-custom-cursor a, html.has-custom-cursor button { cursor: none; }
+html.has-custom-cursor input, html.has-custom-cursor textarea, html.has-custom-cursor select { cursor: text; }
+html.has-custom-cursor select { cursor: pointer; }
+
+/* Giant outlined footer word */
+.v2-stroke-text {
+  -webkit-text-stroke: 2px #1A1A1A;
+  color: transparent;
+  opacity: 0.05;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stripe-gradient, .v2-marquee, .v2-pulse-ring { animation: none; }
+}

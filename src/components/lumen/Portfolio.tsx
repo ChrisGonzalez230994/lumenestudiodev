@@ -1,5 +1,7 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { TiltCard } from "./TiltCard";
 import { useI18n } from "@/lib/i18n";
 import caseRv from "@/assets/case-rv.jpg";
 import caseJz from "@/assets/case-jz.jpg";
@@ -14,94 +16,172 @@ type Case = { key: string; img: string; name: string; href: string };
 
 // Visible by default.
 const FEATURED: Case[] = [
-  { key: "candela", img: caseCandela, name: "Candela Chandía", href: "https://candelachandia.com.ar/" },
-  { key: "gaspar", img: caseGaspar, name: "DimeloGasp", href: "https://gasparporfoliodigital.vercel.app/" },
-  { key: "litz", img: caseLitz, name: "Litz Evolution Studio", href: "https://litzstudioevolution.vercel.app/" },
+  {
+    key: "candela",
+    img: caseCandela,
+    name: "Candela Chandía",
+    href: "https://candelachandia.com.ar/",
+  },
+  {
+    key: "gaspar",
+    img: caseGaspar,
+    name: "DimeloGasp",
+    href: "https://gasparporfoliodigital.vercel.app/",
+  },
+  {
+    key: "litz",
+    img: caseLitz,
+    name: "Litz Evolution Studio",
+    href: "https://litzstudioevolution.vercel.app/",
+  },
 ];
 
 // Shown after clicking "Ver más".
 const MORE: Case[] = [
   { key: "rv", img: caseRv, name: "RV Departamento", href: "https://rvdepartamento.vercel.app/" },
   { key: "jz", img: caseJz, name: "JZ Motomecánica", href: "https://jzmotomecanica.vercel.app/" },
-  { key: "botbol", img: caseBotbol, name: "Botbol Clothes", href: "https://botbolclothes.vercel.app/" },
-  { key: "stele", img: caseStele, name: "Encuadernación Stele", href: "https://encuadernacionstele-5ewz.vercel.app/" },
-  { key: "icb", img: caseIcb, name: "ICB Mar del Plata", href: "https://icbmardelplata.vercel.app/" },
+  {
+    key: "botbol",
+    img: caseBotbol,
+    name: "Botbol Clothes",
+    href: "https://botbolclothes.vercel.app/",
+  },
+  {
+    key: "stele",
+    img: caseStele,
+    name: "Encuadernación Stele",
+    href: "https://encuadernacionstele-5ewz.vercel.app/",
+  },
+  {
+    key: "icb",
+    img: caseIcb,
+    name: "ICB Mar del Plata",
+    href: "https://icbmardelplata.vercel.app/",
+  },
 ];
 
 export function Portfolio() {
   const { t } = useI18n();
   const [expanded, setExpanded] = useState(false);
-  const gridRef = useRef<HTMLDivElement>(null);
-  const visible = expanded ? [...FEATURED, ...MORE] : FEATURED;
 
   const toggle = () => {
     if (expanded) {
-      // Bring the grid back into view so collapsing doesn't leave the user lost further down.
-      gridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
     setExpanded((v) => !v);
   };
 
   return (
-    <section id="portfolio" className="section-light relative py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6">
-        <Reveal className="max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-[0.1em] text-[#6B21C8]">
-            {t("works.label")}
-          </span>
-          <h2 className="mt-3 font-display text-4xl font-semibold text-[#0D0D12] sm:text-5xl">
-            {t("works.title")}
-          </h2>
-          <p className="mt-4 text-base text-[#4A4A6A]">{t("works.subtitle")}</p>
-        </Reveal>
+    <section id="portfolio" className="relative scroll-mt-20 py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="grid gap-6 lg:grid-cols-[1.3fr_1fr] lg:items-end">
+          <Reveal>
+            <span className="font-mono text-xs uppercase tracking-[0.16em] text-[#C0186E]">
+              {t("works.label")}
+            </span>
+            <h2 className="mt-4 text-4xl font-semibold leading-[1.05] text-[#1A1A1A] sm:text-6xl">
+              {t("works.title")}
+            </h2>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <p className="text-base leading-relaxed text-[#5E5E6E] sm:text-lg">
+              {t("works.subtitle")}
+            </p>
+          </Reveal>
+        </div>
 
-        <div
-          id="portfolio-grid"
-          ref={gridRef}
-          className="mt-14 grid scroll-mt-28 gap-4 md:grid-cols-2 lg:grid-cols-3"
-        >
-          {visible.map((c, i) => (
-            <Reveal key={c.key} delay={(i < FEATURED.length ? i : i - FEATURED.length) * 0.06}>
-              <a
+        {/* Featured: bento cards */}
+        <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {FEATURED.map((c, i) => (
+            <Reveal
+              key={c.key}
+              delay={i * 0.06}
+              className={i === 0 ? "md:col-span-2 lg:col-span-1" : ""}
+            >
+              <TiltCard
+                as="a"
                 href={c.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#DEDEE8] bg-white transition-all duration-200 hover:-translate-y-1 hover:border-[#C0186E] hover:shadow-[0_8px_32px_rgba(192,24,110,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C0186E]"
+                className="group block h-full overflow-hidden rounded-3xl border border-black/[0.07] bg-white hover:border-black/15 hover:shadow-[0_24px_60px_-28px_rgba(192,24,110,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C0186E]"
+                innerClassName="flex flex-col"
               >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
-                    src={c.img}
-                    alt={`Vista previa del sitio de ${c.name}`}
-                    loading="lazy"
-                    width={1024}
-                    height={768}
-                    className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  />
+                <div className="p-3">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-gradient-to-br from-[#6B21C8]/15 via-[#C0186E]/10 to-[#F97316]/20 shadow-[inset_0_1px_2px_rgba(0,0,0,0.06)]">
+                    <img
+                      src={c.img}
+                      alt={`Vista previa del sitio de ${c.name}`}
+                      loading="lazy"
+                      width={1024}
+                      height={768}
+                      className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                    />
+                    <span className="absolute bottom-3 right-3 inline-flex translate-y-2 items-center gap-1 rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-[#1A1A1A] opacity-0 shadow-sm transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                      {t("works.v2.visit")}{" "}
+                      <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                    </span>
+                  </div>
                 </div>
-                <div className="flex flex-1 flex-col gap-2 p-5">
-                  <h3 className="font-display text-base font-semibold text-[#0D0D12]">{c.name}</h3>
-                  <span className="w-fit rounded-full bg-[#F3EFFE] px-3 py-1 text-xs font-medium text-[#6B21C8]">
+                <div className="flex flex-1 flex-col gap-2 px-6 pb-6 pt-2">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-[#6B21C8]">
                     {t(`works.${c.key}.tag`)}
                   </span>
-                  <p className="mt-1 text-sm leading-relaxed text-[#4A4A6A]">
+                  <h3 className="text-xl font-semibold text-[#1A1A1A]">{c.name}</h3>
+                  <p className="text-sm leading-relaxed text-[#5E5E6E]">
                     {t(`works.${c.key}.desc`)}
                   </p>
-                  <span className="mt-auto pt-3 text-sm font-semibold text-[#C0186E]">
-                    {t("works.view")} →
-                  </span>
                 </div>
-              </a>
+              </TiltCard>
             </Reveal>
           ))}
         </div>
+
+        {/* More: compact list */}
+        {expanded && (
+          <div id="portfolio-more" className="mt-6 border-t border-black/10">
+            {MORE.map((c, i) => (
+              <Reveal key={c.key} delay={i * 0.05}>
+                <a
+                  href={c.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-5 border-b border-black/10 py-6 transition-all duration-300 hover:pl-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C0186E]"
+                >
+                  <span className="hidden h-14 w-20 shrink-0 overflow-hidden rounded-lg border border-black/5 sm:block">
+                    <img
+                      src={c.img}
+                      alt=""
+                      loading="lazy"
+                      className="h-full w-full object-cover object-top"
+                    />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-xl font-semibold tracking-tight text-[#1A1A1A] sm:text-2xl">
+                      {c.name}
+                    </span>
+                    <span className="mt-1 block text-sm text-[#5E5E6E] md:hidden">
+                      {t(`works.${c.key}.tag`)}
+                    </span>
+                  </span>
+                  <span className="hidden max-w-xs flex-1 text-sm text-[#5E5E6E] md:block">
+                    {t(`works.${c.key}.tag`)}
+                  </span>
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-black/10 text-[#1A1A1A] transition-all duration-300 group-hover:border-[#C0186E] group-hover:bg-[#C0186E] group-hover:text-white">
+                    <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                  </span>
+                </a>
+              </Reveal>
+            ))}
+          </div>
+        )}
 
         <div className="mt-10 flex justify-center">
           <button
             type="button"
             onClick={toggle}
             aria-expanded={expanded}
-            aria-controls="portfolio-grid"
-            className="group inline-flex min-h-[44px] items-center gap-2 rounded-full border-[1.5px] border-[#C0186E] bg-white px-6 py-2.5 text-sm font-semibold text-[#C0186E] transition-colors hover:bg-[#C0186E] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C0186E] focus-visible:ring-offset-2"
+            aria-controls="portfolio-more"
+            className="magnetic inline-flex min-h-[48px] items-center gap-2 rounded-full border border-black/15 bg-white px-6 py-3 text-sm font-semibold text-[#1A1A1A] transition-colors hover:border-black/40"
           >
             {expanded ? t("works.less") : t("works.more")}
             <span
