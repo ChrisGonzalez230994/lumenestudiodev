@@ -1,4 +1,5 @@
 import { Palette, Code2, Target, Linkedin, BriefcaseBusiness, ArrowUpRight } from "lucide-react";
+import { useState } from "react";
 import { Reveal } from "./Reveal";
 import { TiltCard } from "./TiltCard";
 import { useI18n } from "@/lib/i18n";
@@ -82,14 +83,7 @@ export function About() {
                 className="group h-full overflow-hidden rounded-3xl border border-black/[0.07] bg-white hover:border-black/15 hover:shadow-[0_24px_60px_-28px_rgba(107,33,200,0.35)]"
                 innerClassName="grid h-full gap-0 sm:grid-cols-[0.9fr_1.1fr]"
               >
-                <div className="relative aspect-[4/5] overflow-hidden sm:aspect-auto sm:h-full">
-                  <img
-                    src={m.photo}
-                    alt={t(`team.${m.n}.photoAlt`)}
-                    loading="lazy"
-                    className="absolute inset-0 h-full w-full object-cover object-top [filter:grayscale(100%)_contrast(1.05)] transition-[filter,transform] duration-500 ease-out group-hover:scale-[1.03] group-hover:[filter:grayscale(0%)]"
-                  />
-                </div>
+                <TeamPhoto src={m.photo} alt={t(`team.${m.n}.photoAlt`)} />
                 <div className="flex flex-col p-7">
                   <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-[#6B21C8]">
                     {t(`team.${m.n}.role`)}
@@ -135,5 +129,28 @@ export function About() {
         </div>
       </div>
     </section>
+  );
+}
+
+/** Grayscale portrait that turns to color on hover (desktop) or on tap (mobile). */
+function TeamPhoto({ src, alt }: { src: string; alt: string }) {
+  const [color, setColor] = useState(false);
+  return (
+    <button
+      type="button"
+      onClick={() => setColor((v) => !v)}
+      aria-pressed={color}
+      aria-label={alt}
+      className="relative block aspect-[4/5] w-full overflow-hidden text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#C0186E] sm:aspect-auto sm:h-full"
+    >
+      <img
+        src={src}
+        alt=""
+        loading="lazy"
+        className={`absolute inset-0 h-full w-full object-cover object-top transition-[filter,transform] duration-500 ease-out group-hover:scale-[1.03] group-hover:[filter:grayscale(0%)] ${
+          color ? "scale-[1.03] [filter:grayscale(0%)]" : "[filter:grayscale(100%)_contrast(1.05)]"
+        }`}
+      />
+    </button>
   );
 }

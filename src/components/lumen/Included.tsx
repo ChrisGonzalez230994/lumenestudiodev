@@ -172,9 +172,9 @@ export function Included() {
               </div>
               <div
                 aria-hidden="true"
-                className="relative min-h-[11rem] overflow-hidden rounded-2xl bg-gradient-to-br from-[#6B21C8]/15 via-[#C0186E]/10 to-[#F97316]/15 p-4"
+                className="relative min-h-[15.5rem] overflow-hidden rounded-2xl lg:min-h-[11rem] bg-gradient-to-br from-[#6B21C8]/15 via-[#C0186E]/10 to-[#F97316]/15 p-4"
               >
-                <div className="absolute inset-x-4 top-4 translate-y-3 rounded-xl bg-white p-4 shadow-sm transition-transform duration-500 ease-out group-hover:-translate-y-1">
+                <div className="absolute inset-x-4 top-4 rounded-xl bg-white p-4 shadow-sm transition-transform duration-500 ease-out lg:translate-y-3 lg:group-hover:-translate-y-1">
                   <div className="flex items-center justify-between">
                     <span className="font-mono text-[10px] uppercase tracking-wider text-gray-400">
                       {t("inc.panel.visits")}
@@ -192,7 +192,7 @@ export function Included() {
                     ))}
                   </div>
                 </div>
-                <div className="absolute bottom-3 right-4 w-44 translate-y-10 rounded-xl bg-white p-3 shadow-sm transition-transform delay-75 duration-500 ease-out group-hover:translate-y-0">
+                <div className="absolute bottom-3 right-4 w-44 rounded-xl bg-white p-3 shadow-sm transition-transform delay-75 duration-500 ease-out lg:translate-y-10 lg:group-hover:translate-y-0">
                   <span className="font-mono text-[10px] uppercase tracking-wider text-gray-400">
                     {t("inc.panel.orders")}
                   </span>

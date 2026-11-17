@@ -1,5 +1,6 @@
 import { Instagram, Mail, ArrowUpRight } from "lucide-react";
 import logoLumenAsset from "@/assets/logo-lumen.png";
+import { useState } from "react";
 import { useI18n } from "@/lib/i18n";
 
 export function Footer() {
@@ -82,13 +83,34 @@ export function Footer() {
         </a>
       </div>
 
-      {/* Giant outlined word, intentionally clipped */}
-      <p
-        aria-hidden="true"
-        className="v2-stroke-text pointer-events-none -mb-[0.22em] mt-6 select-none whitespace-nowrap text-center text-[24vw] font-extrabold leading-none tracking-[-0.06em]"
-      >
-        LUMEN
-      </p>
+      <FooterWord />
     </footer>
+  );
+}
+
+/**
+ * Giant outlined "LUMEN", intentionally clipped at the bottom. Each letter fills
+ * black on hover; a click or tap toggles it so it stays filled.
+ */
+function FooterWord() {
+  const letters = "LUMEN".split("");
+  const [on, setOn] = useState<boolean[]>(() => letters.map(() => false));
+  return (
+    <div
+      aria-label="Lumen"
+      role="img"
+      className="-mb-[0.22em] mt-6 flex select-none justify-center whitespace-nowrap text-[24vw] font-extrabold leading-none tracking-[-0.06em]"
+    >
+      {letters.map((l, i) => (
+        <span
+          key={i}
+          aria-hidden="true"
+          onClick={() => setOn((prev) => prev.map((v, k) => (k === i ? !v : v)))}
+          className={`v2-letter ${on[i] ? "is-on" : ""}`}
+        >
+          {l}
+        </span>
+      ))}
+    </div>
   );
 }

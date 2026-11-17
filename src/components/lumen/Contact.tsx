@@ -70,7 +70,7 @@ export function Contact() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal>
           <div className="overflow-hidden rounded-[2rem] border border-black/[0.07] bg-white/60 p-5 backdrop-blur sm:p-10 lg:p-14">
-            <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+            <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16 [&>*]:min-w-0">
               <div>
                 <span className="font-mono text-xs uppercase tracking-[0.16em] text-[#C0186E]">
                   {t("contact.label")}
@@ -142,7 +142,7 @@ export function Contact() {
                 <form
                   onSubmit={onSubmit}
                   noValidate
-                  className="flex flex-col gap-4 rounded-3xl border border-[#E6E6EC] bg-white p-5 shadow-[0_24px_60px_-30px_rgba(107,33,200,0.25)] sm:p-8"
+                  className="flex min-w-0 flex-col gap-4 rounded-3xl border border-[#E6E6EC] bg-white p-5 shadow-[0_24px_60px_-30px_rgba(107,33,200,0.25)] sm:p-8"
                 >
                   <Field
                     id="name"
@@ -175,7 +175,7 @@ export function Contact() {
                       value={form.service}
                       onChange={(e) => setForm({ ...form, service: e.target.value })}
                       aria-invalid={!!errors.service}
-                      className="rounded-xl border border-[#E6E6EC] bg-white px-4 py-3 text-base text-[#1A1A1A] placeholder:text-[#A0A0B8] outline-none transition-colors focus:border-[#C0186E] focus:ring-2 focus:ring-[#C0186E]/20"
+                      className="w-full min-w-0 truncate rounded-xl border border-[#E6E6EC] bg-white px-4 py-3 text-base text-[#1A1A1A] placeholder:text-[#A0A0B8] outline-none transition-colors focus:border-[#C0186E] focus:ring-2 focus:ring-[#C0186E]/20"
                     >
                       <option value="">{t("contact.form.serviceSelect")}</option>
                       {services.map((s) => (

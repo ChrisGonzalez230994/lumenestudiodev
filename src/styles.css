@@ -286,6 +286,24 @@ html.has-custom-cursor select { cursor: pointer; }
   color: transparent;
   opacity: 0.05;
 }
+.v2-letter {
+  -webkit-text-stroke: 2px rgba(26, 26, 26, 0.1);
+  color: transparent;
+  cursor: pointer;
+  transition: color 0.45s ease, -webkit-text-stroke-color 0.45s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+.v2-letter.is-on {
+  color: #1A1A1A;
+  -webkit-text-stroke-color: #1A1A1A;
+}
+@media (hover: hover) {
+  .v2-letter:hover {
+    color: #1A1A1A;
+    -webkit-text-stroke-color: #1A1A1A;
+    transform: translateY(-0.03em);
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .stripe-gradient, .v2-marquee, .v2-pulse-ring { animation: none; }
