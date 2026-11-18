@@ -6,6 +6,7 @@ import { About } from "@/components/lumen/About";
 import { Included } from "@/components/lumen/Included";
 import { Process } from "@/components/lumen/Process";
 import { Effects } from "@/components/lumen/Effects";
+import { Preloader } from "@/components/lumen/Preloader";
 
 import { Portfolio } from "@/components/lumen/Portfolio";
 import { FAQ } from "@/components/lumen/FAQ";
@@ -62,6 +63,7 @@ function Index() {
   return (
     <LanguageProvider>
       <main className="lumen-v2 relative isolate min-h-screen overflow-x-clip">
+        <Preloader />
         <Effects />
         <Header />
         <Hero />

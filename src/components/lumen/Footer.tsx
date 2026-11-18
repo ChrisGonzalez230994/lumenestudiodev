@@ -99,7 +99,7 @@ function FooterWord() {
     <div
       aria-label="Lumen"
       role="img"
-      className="-mb-[0.22em] mt-6 flex select-none justify-center whitespace-nowrap text-[24vw] font-extrabold leading-none tracking-[-0.06em]"
+      className="mt-8 flex pb-10 sm:pb-16 select-none justify-center whitespace-nowrap text-[24vw] font-extrabold leading-none tracking-[-0.06em]"
     >
       {letters.map((l, i) => (
         <span
