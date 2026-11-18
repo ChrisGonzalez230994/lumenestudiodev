@@ -96,6 +96,8 @@ const es: Dict = {
   "works.gaspar.desc": "Portfolio digital para un productor musical de Mar del Plata, con su música, servicios de producción y Auto-Tune en vivo, galería de fotos y contacto directo.",
   "works.candela.tag": "Landing page — estudio jurídico",
   "works.candela.desc": "Landing para una abogada penalista, con áreas de práctica, guardia de urgencias 24 hs, proceso de trabajo, preguntas frecuentes, versión en inglés y formulario de consulta directo a WhatsApp.",
+  "works.leandro.tag": "Portfolio profesional",
+  "works.leandro.desc": "Portfolio personal para conseguir trabajo en atención al público, comercio o depósito, con presentación, experiencia, habilidades, disponibilidad y contacto directo por WhatsApp.",
 
 
   // FAQ
@@ -281,6 +283,8 @@ const en: Dict = {
   "works.gaspar.desc": "Digital portfolio for a music producer in Mar del Plata, with his music, production and live Auto-Tune services, a photo gallery and direct contact.",
   "works.candela.tag": "Landing page — law practice",
   "works.candela.desc": "Landing page for a criminal defense lawyer, with practice areas, 24/7 emergency line, work process, FAQ, an English version and a consultation form that goes straight to WhatsApp.",
+  "works.leandro.tag": "Professional portfolio",
+  "works.leandro.desc": "Personal portfolio to land a job in customer service, retail or warehouse work, with an intro, experience, skills, availability and direct WhatsApp contact.",
 
 
   "faq.label": "Frequently asked questions",

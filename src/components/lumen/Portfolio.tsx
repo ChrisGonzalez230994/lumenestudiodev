@@ -11,6 +11,7 @@ import caseStele from "@/assets/case-stele.jpg";
 import caseIcb from "@/assets/case-icb.jpg";
 import caseGaspar from "@/assets/case-gaspar.jpg";
 import caseCandela from "@/assets/case-candela.jpg";
+import caseLeandro from "@/assets/case-leandro.jpg";
 
 type Case = { key: string; img: string; name: string; href: string };
 
@@ -38,6 +39,12 @@ const FEATURED: Case[] = [
 
 // Shown after clicking "Ver más".
 const MORE: Case[] = [
+  {
+    key: "leandro",
+    img: caseLeandro,
+    name: "Leandro Sayago",
+    href: "https://leandro-sayago.leandro-porfolio.workers.dev/",
+  },
   { key: "rv", img: caseRv, name: "RV Departamento", href: "https://rvdepartamento.vercel.app/" },
   { key: "jz", img: caseJz, name: "JZ Motomecánica", href: "https://jzmotomecanica.vercel.app/" },
   {

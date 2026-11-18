@@ -11,7 +11,7 @@ export type Service = {
   name: L;
   tagline: L;
   price: L;
-  priceNote: L; // e.g. "pago único" / "+ USD 10 / mes"
+  priceNote: L; // e.g. "Sin mantenimiento mensual" / "+ USD 10 / mes"
   key: L[]; // 4–5 highlights shown on the card
   groups: Group[]; // full detail, shown when expanded
 };
@@ -22,7 +22,7 @@ const it = (tEs: string, dEs: string, tEn: string, dEn: string): Item => ({
 });
 const l = (es: string, en: string): L => ({ es, en });
 
-const ONE_TIME = l("Pago único · sin mantenimiento mensual", "One-time payment · no monthly fee");
+const ONE_TIME = l("Sin mantenimiento mensual", "No monthly maintenance fee");
 
 export const SERVICES: Service[] = [
   {
@@ -131,9 +131,9 @@ export const SERVICES: Service[] = [
             "Includes 1 round of revisions before launch.",
           ),
           it(
-            "Inversión única",
+            "Sin mantenimiento mensual",
             "No cobramos mantenimiento mensual. La web es tuya de por vida.",
-            "One-time investment",
+            "No monthly fee",
             "No monthly maintenance fee. The website is yours for life.",
           ),
         ],
@@ -228,9 +228,9 @@ export const SERVICES: Service[] = [
             "Includes 1 round of revisions before launch.",
           ),
           it(
-            "Inversión única",
+            "Sin mantenimiento mensual",
             "No cobramos mantenimiento mensual. La web es tuya de por vida.",
-            "One-time investment",
+            "No monthly fee",
             "No monthly maintenance fee. The website is yours for life.",
           ),
         ],
@@ -386,9 +386,9 @@ export const SERVICES: Service[] = [
             "Includes 2 rounds of revisions before launch.",
           ),
           it(
-            "Inversión única",
+            "Sin mantenimiento mensual",
             "No cobramos mantenimiento mensual. La web es tuya de por vida.",
-            "One-time investment",
+            "No monthly fee",
             "No monthly maintenance fee. The website is yours for life.",
           ),
         ],
@@ -575,8 +575,8 @@ export const SERVICES: Service[] = [
     ),
     price: l("USD 250", "USD 250"),
     priceNote: l(
-      "Pago único · más el plan de la plataforma",
-      "One-time payment · plus the platform's plan",
+      "Más el plan mensual de la plataforma",
+      "Plus the platform's monthly plan",
     ),
     key: [
       l("Te ayudamos a elegir la plataforma ideal", "We help you pick the right platform"),
