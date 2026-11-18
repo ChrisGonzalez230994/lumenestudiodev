@@ -12,7 +12,6 @@ const CLIENTS = [
   "Litz Evolution Studio",
   "RV Departamento",
   "JZ Motomecánica",
-  "Botbol Clothes",
   "Encuadernación Stele",
   "ICB Mar del Plata",
 ];

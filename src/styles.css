@@ -306,7 +306,9 @@ html.has-custom-cursor select { cursor: pointer; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .stripe-gradient, .v2-marquee, .v2-pulse-ring { animation: none; }
+  .stripe-gradient, .v2-pulse-ring { animation: none; }
+  /* The client/stack strips keep moving, just slower, so they never look frozen */
+  .v2-marquee { animation-duration: 60s; }
 }
 
 /* Intro loader (total 1.8s; see Preloader.tsx) */

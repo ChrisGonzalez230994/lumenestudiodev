@@ -6,7 +6,6 @@ import { useI18n } from "@/lib/i18n";
 import caseRv from "@/assets/case-rv.jpg";
 import caseJz from "@/assets/case-jz.jpg";
 import caseLitz from "@/assets/case-litz.jpg";
-import caseBotbol from "@/assets/case-botbol.jpg";
 import caseStele from "@/assets/case-stele.jpg";
 import caseIcb from "@/assets/case-icb.jpg";
 import caseGaspar from "@/assets/case-gaspar.jpg";
@@ -47,12 +46,6 @@ const MORE: Case[] = [
   },
   { key: "rv", img: caseRv, name: "RV Departamento", href: "https://rvdepartamento.vercel.app/" },
   { key: "jz", img: caseJz, name: "JZ Motomecánica", href: "https://jzmotomecanica.vercel.app/" },
-  {
-    key: "botbol",
-    img: caseBotbol,
-    name: "Botbol Clothes",
-    href: "https://botbolclothes.vercel.app/",
-  },
   {
     key: "stele",
     img: caseStele,
